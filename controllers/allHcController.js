@@ -5,7 +5,7 @@ const path = require('path');
 // ==========================================
 // CONFIGURATION: Set the Court Number Here
 // ==========================================
-const TARGET_COURT_NO = '64'; // Change this to '82', '66', etc. as needed
+const TARGET_COURT_NO = '82'; // Change this to '82', '66', etc. as needed
 
 // Dynamic file path based on the selected court number
 const filePath = path.join(__dirname, `../court${TARGET_COURT_NO}_cases_log.json`);

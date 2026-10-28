@@ -4,7 +4,7 @@ const PrisonerRecord = require("../models/PrisonerRecord");
 
 /**
  * Controller to fetch prisoner records based on query parameters:
- * - utNumber (matches RegisterNo)
+ * - utNumber (matches RegisterNo or embedded UT number in 'Prisoner Name')
  * - name (matches 'Prisoner Name' case-insensitively)
  * - firNo (matches 'FIR/Case No' case-insensitively)
  */
@@ -15,7 +15,7 @@ const getPrisonerRecords = async (req, res) => {
 
     // 1. Search by UT Number (mapped to RegisterNo in jail records)
     if (utNumber) {
-      query.RegisterNo = utNumber.trim();
+      query.RegisterNo = utNumber.trim(); 
     } 
     // 2. Search by Prisoner Name (Partial, case-insensitive match)
     else if (name) {
@@ -31,13 +31,22 @@ const getPrisonerRecords = async (req, res) => {
       });
     }
 
-    // Execute query in MongoDB
-    const records = await PrisonerRecord.find(query);
+    // Use 'let' instead of 'const' so the variable can be reassigned during fallback search
+    let records = await PrisonerRecord.find(query);
 
+    // Fallback search: If searching by utNumber failed on RegisterNo, search inside 'Prisoner Name'
+    if ((!records || records.length === 0) && utNumber) {
+      const cleanUt = utNumber.trim();
+      records = await PrisonerRecord.find({
+        'Prisoner Name': { $regex: cleanUt, $options: 'i' }
+      });
+    }
+
+    // If still no records found after fallback
     if (!records || records.length === 0) {
       return res.status(404).json({ 
         success: false, 
-        message: 'No prisoner records found matching the criteria.' 
+        message: 'No prisoner records found matching the criteria or UT number.' 
       });
     }
 
@@ -45,8 +54,7 @@ const getPrisonerRecords = async (req, res) => {
     return res.status(200).json({
       success: true,
       count: records.length,
-      // If fetching by UT/RegisterNo, you can structure it to match your frontend mock response layout
-      utNumber: utNumber || records[0].RegisterNo,
+      utNumber: records[0].RegisterNo || "N/A",
       prisonerName: records[0]['Prisoner Name'],
       fatherName: records[0]['Father Name'],
       barrack: records[0].Barrack || 'N/A',
@@ -73,6 +81,10 @@ const getPrisonerRecords = async (req, res) => {
     });
   }
 };
+
+
+
+
 
 /**
  * 2. Fetch records by UT Number / Register No (e.g., "3857/26")
