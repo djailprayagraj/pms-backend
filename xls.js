@@ -3,25 +3,26 @@ const XLSX = require('xlsx');
 
 
 
-// Function to read and inspect Excel data
+// Function to read and inspect Excel and convert it into json.
 const readExcelFile = (filePath) => {
   try {
-    // 1. Read the Excel workbook
-    const workbook = XLSX.readFile(filePath);
+
+   
+    const workbook = XLSX.readFile(filePath);    // 1. Read the Excel file and keep it in variable named workbook
     
-    // 2. Get the first sheet's name
-    const sheetName = workbook.SheetNames[0];
-    console.log(`\n📄 Reading Sheet: "${sheetName}"`);
+   
+    const sheetName = workbook.SheetNames[0];     // 2. from the workbook variable take its first sheetname store in sheetname Variable.
+    console.log(`\n📄 Reading Sheet: "${sheetName}"`);   // 3.console.log first sheet's name
     
-    // 3. Convert sheet data into JSON rows
-    const worksheet = workbook.Sheets[sheetName];
-    const jsonData = XLSX.utils.sheet_to_json(worksheet);
+   
+    const worksheet = workbook.Sheets[sheetName];     // 4. from the workbook variable get the sheet or sheet data itself and store it in variable worksheet
+    const jsonData = XLSX.utils.sheet_to_json(worksheet); // 5. now the worksheet which is in worsheet variable is changed to json using 
 
     console.log(`📊 Total Rows Found: ${jsonData.length}`);
 
     if (jsonData.length > 0) {
       // 4. Extract and print the exact column headers (Keys)
-      const columnHeaders = Object.keys(jsonData[0]);
+      const columnHeaders = Object.keys(jsonData[0]);   // from the json data the first entry is taken and then it's key is extracted i.e columns name
       console.log('🔑 Column Headers (Use these for your Mongoose Schema):');
       console.log(columnHeaders);
       

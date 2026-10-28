@@ -1,10 +1,10 @@
 const XLSX = require('xlsx');
-
+const PrisonerRecord = require("../models/PrisonerRecord");
 
 /**
  * @desc    Upload raw ePrisons Excel file, parse rows, and insert into MongoDB
- * @route   POST /api/eprison/import-excel
- * @access  Private / Jail Admin
+ * @route   POST /api/data/import
+ * @access  all 
  */
 const importDataToDb = async (req, res) => {
   try {
@@ -21,7 +21,7 @@ const importDataToDb = async (req, res) => {
     // 2. Read Excel workbook directly from memory buffer
     const workbook = XLSX.read(req.file.buffer, { type: 'buffer' });
 
-    // 3. Extract target sheet name (Defaulting to first sheet)
+    // 3. Extract target sheet name & worksheet data
     const firstSheetName = workbook.SheetNames[0];
     const worksheet = workbook.Sheets[firstSheetName];
 
@@ -37,9 +37,9 @@ const importDataToDb = async (req, res) => {
       });
     }
 
-    // 5. Bulk insert records into MongoDB
-    // { ordered: false } allows valid documents to insert even if duplicate key errors occur on individual documents
-    const insertedRecords = await Prisoner.insertMany(jsonData, { ordered: false });
+    // 5. Bulk insert records into MongoDB using PrisonerRecord model
+    // { ordered: false } allows valid documents to insert even if duplicate key errors occur
+    const insertedRecords = await PrisonerRecord.insertMany(jsonData, { ordered: false });
 
     return res.status(201).json({
       success: true,
@@ -68,6 +68,52 @@ const importDataToDb = async (req, res) => {
   }
 };
 
+
+/**
+ * @desc    Get the latest uploaded record and overall record metadata
+ * @route   GET /api/data/importHistory
+ * @access  All / Jail Admin
+ */
+const getImportHistory = async (req, res) => {
+  try {
+    // 1. Get total record count in MongoDB
+    const totalRecords = await PrisonerRecord.countDocuments();
+
+    // 2. Find the single most recently inserted record (sorted by createdAt descending)
+    const latestRecord = await PrisonerRecord.findOne().sort({ createdAt: -1 });
+
+    if (!latestRecord) {
+      return res.status(200).json({
+        success: true,
+        message: 'No prisoner records found in the database yet.',
+        data: {
+          totalRecords: 0,
+          lastUpdated: null,
+          latestRecordSample: null,
+        },
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'Upload history fetched successfully.',
+      data: {
+        totalRecords,
+        lastUpdated: latestRecord.createdAt || latestRecord.updatedAt || null,
+        latestRecordSample: latestRecord,
+      },
+    });
+  } catch (error) {
+    console.error('❌ Error fetching import history:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to retrieve import history.',
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   importDataToDb,
+  getImportHistory,
 };

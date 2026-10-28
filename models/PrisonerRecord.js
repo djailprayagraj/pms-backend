@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const prisonerRecordSchema = new mongoose.Schema({
-  PID: { type: Number, index: true },
-  JID: { type: String, index: true },
-  'Prisoner Name': { type: String, index: true },
+  PID: { type: Number, index: true },      
+  JID: { type: String, index: true },   //      77-3917-2026-UT  , this suffix in the last tells the actual type of prisoner UT/CT
+  'Prisoner Name': { type: String, index: true },   // ANIL MAURYA (5701/25) @ (UT-427/26) 
   'Father Name': String,
   Gender: String,
   Age: Number,
@@ -19,10 +19,10 @@ const prisonerRecordSchema = new mongoose.Schema({
   PresentDistrict: String,
   PresentState: String,
   'Jail Name': String,
-  'Prisoner Type': String,
+  'Prisoner Type': String,              // This tells whether a prisoner is UT/CT
   Ward: String,
   Barrack: String,
-  RegisterNo: String,
+  RegisterNo: String,                   // this is ut/ct number, changes when a prisoner is convicted
   'Period Undergone(Days)': Number,
   'First Admission Date': String,
   'Latest Admission Date': String,
@@ -42,9 +42,9 @@ const prisonerRecordSchema = new mongoose.Schema({
   'FIR SNo': String,
   'FIR Year': Number,
   'Case No.': String,
-  'Act Section': String,
-  'FIR Date': String,
-  'Court Name': String,
+  'Act Section': String,    //411,413 IPC AND 4/5 EXP(S) ACT
+  'FIR Date': String,     
+  'Court Name': String,   // by default it shows Alld District Court 
   'Judge Name': String,
   'Action Code': String,
   'Action Date': String,

@@ -67,7 +67,7 @@ const loginUser = async (req, res) => {
 };
 
 // @desc    Add New User / Staff
-// @route   POST /api/auth/add-user
+// @route   POST /api/auth/
 const addUser = async (req, res) => {
   try {
     const { name, fatherName, firNo, utNumber, username, password, role } = req.body;

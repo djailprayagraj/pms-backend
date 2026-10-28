@@ -13,8 +13,11 @@ const connectDB = require('./config/db'); // connecting to database over here.
 // Routes start over here 
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
-const dataRoutes = require('./routes/dataRoutes');
+const dataRoutes = require('./routes/dataRoutes'); // to upload files to backen
 const fetchRecordsRoutes = require('./routes/fetchRecordsRoutes');
+const hearingRoutes = require('./routes/hearingRoutes');
+const adalatRoutes = require('./routes/adalatRoutes');
+const allahabadhighcourt = require('./routes/allHcRoutes');
 // Routes end over here 
 
 
@@ -71,8 +74,11 @@ app.get('/get', (req, res) => {
 // Mount Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/data', dataRoutes);
+app.use('/api/data', dataRoutes); // to uploaf files on backend  /api/data/import
 app.use('/api/prisoners', fetchRecordsRoutes);
+app.use('/api/hearings', hearingRoutes);
+app.use('/api/adalat', adalatRoutes);
+app.use('/api/HC', allahabadhighcourt);
 
 // Start the server
 app.listen(PORT, () => {
