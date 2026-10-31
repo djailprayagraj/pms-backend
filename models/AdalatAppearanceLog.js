@@ -21,6 +21,7 @@ const AdalatAppearanceLogSchema = new mongoose.Schema(
       required: [true, 'Father Name is required'],
       trim: true,
     },
+    gender: { type: String, default: 'Male' }, // newly added 
     barrack: {
       type: String,
       default: '6-B',

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {
   postAdalatEntries,
-  putAdalatEntry,
+  putAdalatEntryByUtNumber,
   getAdalatByDate,
   deleteAdalatEntry,
   removeDuplicateAdalatRecords,
@@ -14,7 +14,7 @@ router.post('/feed', postAdalatEntries);
 
 // @route   PUT /api/adalat/:id
 // @desc    Update specific entry data by ID (warrant type, court, status, etc.)
-router.put('/:id', putAdalatEntry);
+router.put('/ut/:utNumber', putAdalatEntryByUtNumber);
 
 // @route   GET /api/adalat/date/:date
 // @desc    Get all Adalat records for a specific date (Format: YYYY-MM-DD)

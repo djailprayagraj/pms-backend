@@ -1,8 +1,10 @@
-// /controllers/adalatController.js
 const AdalatAppearanceLog = require('../models/AdalatAppearanceLog');
+const PrisonerRecord = require('../models/PrisonerRecord');
+
+const ALLOWED_WARRANTS = ['167/187', '209/232', '309/346'];
 
 /**
- * @desc    POST - Enter the entire list of Adalat appearance records
+ * @desc    POST - Enter the entire list of Adalat appearance records with Gender mapping
  * @route   POST /api/adalat
  */
 const postAdalatEntries = async (req, res) => {
@@ -16,7 +18,7 @@ const postAdalatEntries = async (req, res) => {
       });
     }
 
-    // 1. Deduplicate entries inside the incoming array payload
+    // 1. Deduplicate entries inside incoming payload array
     const seenKeys = new Set();
     const uniqueIncomingEntries = entries.filter((entry) => {
       const key = `${entry.utNumber}_${entry.firNumber}_${new Date(entry.hearingDate).toISOString()}_${entry.appearanceMode}`;
@@ -28,10 +30,11 @@ const postAdalatEntries = async (req, res) => {
     const createdLogs = [];
 
     for (const entry of uniqueIncomingEntries) {
-      const {
+      let {
         utNumber,
         prisonerName,
         fatherName,
+        gender: incomingGender,
         barrack = '6-B',
         firNumber,
         actSection = 'N/A',
@@ -42,14 +45,19 @@ const postAdalatEntries = async (req, res) => {
         nonAttendanceReason = 'N/A',
         remarks = '',
         courtName = 'District Court',
-        district = 'Gorakhpur',
+        district = 'Prayagraj', // Updated default based on schema
         custodyStatus = 'ACTIVE_CUSTODY',
         warrantType = '167/187',
       } = entry;
 
+      // Validate warrantType against schema enum
+      if (!ALLOWED_WARRANTS.includes(warrantType)) {
+        warrantType = '167/187';
+      }
+
       const parsedHearingDate = new Date(hearingDate);
 
-      // 2. Check if identical record already exists in the database
+      // 2. Check for duplicate record in DB
       const duplicateInDb = await AdalatAppearanceLog.findOne({
         utNumber,
         firNumber,
@@ -61,7 +69,22 @@ const postAdalatEntries = async (req, res) => {
         continue; // Skip existing record
       }
 
-      // 3. Fetch previous log for transitions state tracking
+      // 3. Resolve Gender from Master PrisonerRecord if missing from payload
+      let resolvedGender = incomingGender;
+
+      if (!resolvedGender) {
+        const prisonerDoc = await PrisonerRecord.findOne({
+          $or: [
+            { RegisterNo: utNumber },
+            { utNumber: utNumber },
+            { 'Prisoner Name': { $regex: utNumber, $options: 'i' } },
+          ],
+        }).select('Gender');
+
+        resolvedGender = prisonerDoc?.Gender || 'Male';
+      }
+
+      // 4. Fetch previous log for transitions state tracking
       const existingPreviousLog = await AdalatAppearanceLog.findOne({
         utNumber,
         firNumber,
@@ -77,6 +100,7 @@ const postAdalatEntries = async (req, res) => {
         utNumber,
         prisonerName,
         fatherName,
+        gender: resolvedGender,
         barrack,
         firNumber,
         actSection,
@@ -128,27 +152,94 @@ const postAdalatEntries = async (req, res) => {
 };
 
 /**
- * @desc    PUT - Update specific data in an existing Adalat log by record ID
- * @route   PUT /api/adalat/:id
+ * @desc    PUT - Update existing Adalat log or create one from PrisonerRecord if missing
+ * @route   PUT /api/adalat/ut/:utNumber
  */
-const putAdalatEntry = async (req, res) => {
+const putAdalatEntryByUtNumber = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { utNumber } = req.params;
     const updateData = req.body;
 
-    const existingLog = await AdalatAppearanceLog.findById(id);
+    // Decode URL encoded utNumber (e.g. "3857%2F26" -> "3857/26")
+    const decodedUtNumber = decodeURIComponent(utNumber);
+    const now = new Date();
+
+    let existingLog = await AdalatAppearanceLog.findOne({ utNumber: decodedUtNumber });
+
+    // Fallback if log does not exist: Create new record from PrisonerRecord
     if (!existingLog) {
-      return res.status(404).json({
-        success: false,
-        message: 'Adalat entry log not found.',
+      const prisonerDoc = await PrisonerRecord.findOne({
+        $or: [
+          { RegisterNo: decodedUtNumber },
+          { utNumber: decodedUtNumber },
+          { 'Prisoner Name': { $regex: decodedUtNumber, $options: 'i' } }
+        ]
+      });
+
+      if (!prisonerDoc) {
+        return res.status(404).json({
+          success: false,
+          message: 'Adalat entry log not found and no matching Prisoner record found to create one.',
+        });
+      }
+
+      let initialWarrant = updateData.warrantType || '167/187';
+      if (!ALLOWED_WARRANTS.includes(initialWarrant)) {
+        initialWarrant = '167/187';
+      }
+
+      const newLog = new AdalatAppearanceLog({
+        utNumber: decodedUtNumber,
+        prisonerName: prisonerDoc['Prisoner Name'] || prisonerDoc.prisonerName || 'Unknown',
+        fatherName: prisonerDoc.fatherName || prisonerDoc.FatherName || 'N/A',
+        gender: prisonerDoc.Gender || prisonerDoc.gender || 'Male',
+        barrack: prisonerDoc.barrack || '6-B',
+        firNumber: updateData.firNumber || prisonerDoc.firNumber || 'N/A',
+        actSection: updateData.actSection || prisonerDoc.actSection || 'N/A',
+        hearingDate: updateData.hearingDate ? new Date(updateData.hearingDate) : new Date(),
+        appearanceMode: updateData.appearanceMode || 'SESSION_ADALAT', // Aligned with schema enum ['VC', 'SESSION_ADALAT']
+        actionCategory: updateData.actionCategory || 'Jail Adalat',
+        courtName: updateData.courtName || 'District Court',
+        district: updateData.district || 'Prayagraj',
+        custodyStatus: updateData.custodyStatus || 'ACTIVE_CUSTODY',
+        warrantType: initialWarrant,
+        warrantTypeTransition: {
+          fromWarrant: null,
+          toWarrant: initialWarrant,
+          changedAt: now,
+        },
+        courtTransition: {
+          fromCourt: null,
+          toCourt: updateData.courtName || 'District Court',
+          changedAt: now,
+        },
+        custodyStatusTransition: {
+          fromStatus: null,
+          toStatus: updateData.custodyStatus || 'ACTIVE_CUSTODY',
+          changedAt: now,
+        },
+      });
+
+      await newLog.save();
+
+      return res.status(201).json({
+        success: true,
+        message: 'Adalat entry log successfully created from Prisoner record data.',
+        data: newLog,
       });
     }
 
-    const now = new Date();
+    // Standard Update Logic for existing log
     const updates = { ...updateData };
 
-    // Track Warrant Transition if changed
     if (updateData.warrantType && updateData.warrantType !== existingLog.warrantType) {
+      if (!ALLOWED_WARRANTS.includes(updateData.warrantType)) {
+        return res.status(400).json({
+          success: false,
+          message: `Invalid warrantType. Allowed values are: ${ALLOWED_WARRANTS.join(', ')}`
+        });
+      }
+
       updates.warrantTypeTransition = {
         fromWarrant: existingLog.warrantType,
         toWarrant: updateData.warrantType,
@@ -156,7 +247,6 @@ const putAdalatEntry = async (req, res) => {
       };
     }
 
-    // Track Court Transition if changed
     if (updateData.courtName && updateData.courtName !== existingLog.courtName) {
       updates.courtTransition = {
         fromCourt: existingLog.courtName,
@@ -165,7 +255,6 @@ const putAdalatEntry = async (req, res) => {
       };
     }
 
-    // Track Custody Status Transition if changed
     if (updateData.custodyStatus && updateData.custodyStatus !== existingLog.custodyStatus) {
       updates.custodyStatusTransition = {
         fromStatus: existingLog.custodyStatus,
@@ -174,28 +263,29 @@ const putAdalatEntry = async (req, res) => {
       };
     }
 
-    const updatedLog = await AdalatAppearanceLog.findByIdAndUpdate(id, updates, {
-      new: true,
-      runValidators: true,
-    });
+    const updatedLog = await AdalatAppearanceLog.findOneAndUpdate(
+      { utNumber: decodedUtNumber }, 
+      updates, 
+      { new: true, runValidators: true }
+    );
 
     return res.status(200).json({
       success: true,
-      message: 'Adalat entry updated successfully.',
+      message: 'Adalat entry updated successfully by UT number.',
       data: updatedLog,
     });
   } catch (error) {
-    console.error('Error in putAdalatEntry:', error);
+    console.error('Error in putAdalatEntryByUtNumber:', error);
     return res.status(500).json({
       success: false,
-      message: 'Server error while updating Adalat entry.',
+      message: 'Server error while updating/creating Adalat entry.',
       error: error.message,
     });
   }
 };
 
 /**
- * @desc    GET - Get all Adalat entries for a specific date (Format: YYYY-MM-DD)
+ * @desc    GET - Get all Adalat entries for a specific date with Gender mapped
  * @route   GET /api/adalat/date/:date
  */
 const getAdalatByDate = async (req, res) => {
@@ -209,7 +299,6 @@ const getAdalatByDate = async (req, res) => {
       });
     }
 
-    // Set full 24-hour range for specified date
     const startOfDay = new Date(date);
     startOfDay.setUTCHours(0, 0, 0, 0);
 
@@ -220,11 +309,29 @@ const getAdalatByDate = async (req, res) => {
       hearingDate: { $gte: startOfDay, $lte: endOfDay },
     }).sort({ createdAt: -1 });
 
+    // Fallback mapping: Fill gender from PrisonerRecord if existing legacy rows miss it
+    const mappedLogs = await Promise.all(
+      adalatList.map(async (log) => {
+        const logObj = log.toObject();
+        if (!logObj.gender) {
+          const prisoner = await PrisonerRecord.findOne({
+            $or: [
+              { RegisterNo: logObj.utNumber },
+              { 'Prisoner Name': { $regex: logObj.utNumber, $options: 'i' } },
+            ],
+          }).select('Gender');
+
+          logObj.gender = prisoner?.Gender || 'Male';
+        }
+        return logObj;
+      })
+    );
+
     return res.status(200).json({
       success: true,
-      count: adalatList.length,
+      count: mappedLogs.length,
       date,
-      data: adalatList,
+      data: mappedLogs,
     });
   } catch (error) {
     console.error('Error in getAdalatByDate:', error);
@@ -331,7 +438,7 @@ const removeDuplicateAdalatRecords = async (req, res) => {
 
 module.exports = {
   postAdalatEntries,
-  putAdalatEntry,
+  putAdalatEntryByUtNumber,
   getAdalatByDate,
   deleteAdalatEntry,
   removeDuplicateAdalatRecords,
