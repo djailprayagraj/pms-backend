@@ -5,7 +5,7 @@ const ALLOWED_WARRANTS = ['167/187', '209/232', '309/346'];
 
 /**
  * @desc    POST - Enter the entire list of Adalat appearance records with Gender mapping
- * @route   POST /api/adalat
+ * @route   POST /api/adalat/feed
  */
 const postAdalatEntries = async (req, res) => {
   try {
@@ -48,12 +48,19 @@ const postAdalatEntries = async (req, res) => {
         district = 'Prayagraj', // Updated default based on schema
         custodyStatus = 'ACTIVE_CUSTODY',
         warrantType = '167/187',
+        warrantCount, // <-- Extracted from incoming payload
       } = entry;
 
       // Validate warrantType against schema enum
       if (!ALLOWED_WARRANTS.includes(warrantType)) {
         warrantType = '167/187';
       }
+
+      // Handle warrantCount formatting (numeric or default 'N/A' string)
+      const parsedWarrantCount =
+        warrantCount !== undefined && warrantCount !== null && warrantCount !== ''
+          ? (typeof warrantCount === 'number' ? warrantCount : isNaN(Number(warrantCount)) ? warrantCount : Number(warrantCount))
+          : 'N/A';
 
       const parsedHearingDate = new Date(hearingDate);
 
@@ -114,6 +121,7 @@ const postAdalatEntries = async (req, res) => {
         district,
         custodyStatus,
         warrantType,
+        warrantCount: parsedWarrantCount, // <-- Added field to Mongoose model instantiation
         warrantTypeTransition: {
           fromWarrant: prevWarrant,
           toWarrant: warrantType,

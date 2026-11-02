@@ -1,0 +1,18 @@
+[
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-02T09:55:25.782Z",
+    "endTime": null,
+    "lastActiveTime": "2026-11-02T10:00:21.571Z",
+    "serialNo": "221",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/40995/2025",
+      "title": "NAVYANSH PANDEY ALIAS NAVANSH PANDEY Vs. STATE OF-           U.P",
+      "petitionerCounsels": "PRAFUL DEV SHUKLA,VISHAKHA PANDE,YASHASWIN VENUGOPAL BAJPAI,Sr. Advocate,SHAILENDRA PRATAP SINGH, RAMESH KUMAR SINGH",
+      "respondentCounsel": "ZAFAR ABBAS,SARVE NAZIR,BRIJESH KUMAR PANDEY,G.A."
+    },
+    "importantInformation": null
+  }
+]

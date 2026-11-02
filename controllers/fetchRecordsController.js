@@ -254,9 +254,23 @@ const getAllPrisoners = async (req, res) => {
           }
         }
       },
+      // ✅ Corrected: Single $facet stage with parallel branches
       {
         $facet: {
-          metadata: [{ $count: "totalCount" }],
+          totalCount: [{ $count: "count" }],
+          inCustodyCount: [
+            {
+              $match: {
+                $or: [
+                  { "Release Date": { $exists: false } },
+                  { "Release Date": null },
+                  { "Release Date": "" },
+                  { "Release Date": " " }
+                ]
+              }
+            },
+            { $count: "count" }
+          ],
           data: [{ $skip: skip }, { $limit: limit }]
         }
       }
@@ -264,13 +278,18 @@ const getAllPrisoners = async (req, res) => {
 
     const result = await PrisonerRecord.aggregate(aggregationPipeline);
 
-    const totalCount = result[0].metadata[0] ? result[0].metadata[0].totalCount : 0;
-    const records = result[0].data;
+    const facetResult = result[0] || {};
+    const totalCount = facetResult.totalCount?.[0]?.count || 0;
+    const inCustodyCount = facetResult.inCustodyCount?.[0]?.count || 0;
+    const releasedCount = Math.max(0, totalCount - inCustodyCount);
+    const records = facetResult.data || [];
 
     return res.status(200).json({
       success: true,
       count: records.length,
       totalCount,
+      inCustodyCount,
+      releasedCount,
       currentPage: page,
       totalPages: Math.ceil(totalCount / limit),
       prisoners: records
@@ -297,7 +316,7 @@ const updatePrisoner = async (req, res) => {
     const updatedPrisoner = await PrisonerRecord.findByIdAndUpdate(
       id,
       { $set: updateData },
-      { new: true, runValidators: true }
+      { returnDocument: 'after', runValidators: true } // <-- Updated here
     ).lean();
 
     if (!updatedPrisoner) {
@@ -326,6 +345,122 @@ const updatePrisoner = async (req, res) => {
 
 
 
+/**
+ * Fetch unique convicted prisoner records (Prisoner Type: "CT") with pagination, search, and server-calculated counts.
+ * Endpoint: GET /api/prisoners/convicted?page=1&limit=50&search=query
+ */
+const getAllConvictedPrisoners = async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 50;
+    const skip = (page - 1) * limit;
+    const search = req.query.search ? req.query.search.trim() : '';
+
+    // 🔒 Enforce "Prisoner Type": "CT" filter strictly
+    let matchQuery = { "Prisoner Type": "CT" };
+
+    if (search) {
+      matchQuery.$or = [
+        { 'Prisoner Name': { $regex: search, $options: 'i' } },
+        { RegisterNo: { $regex: search, $options: 'i' } },
+        { 'FIR/Case No': { $regex: search, $options: 'i' } }
+      ];
+    }
+
+    const aggregationPipeline = [
+      { $match: matchQuery },
+      {
+        $group: {
+          _id: {
+            registerNo: "$RegisterNo",
+            firNo: "$FIR/Case No",
+            actSection: "$Act Section"
+          },
+          doc: { $first: "$$ROOT" }
+        }
+      },
+      {
+        $group: {
+          _id: "$doc.RegisterNo",
+          primaryDoc: { $first: "$doc" },
+          allCases: {
+            $push: {
+              _id: "$doc._id",
+              firNo: "$doc.FIR/Case No",
+              actSection: "$doc.Act Section",
+              psName: "$doc.PS Name",
+              courtName: "$doc.Court Name",
+              judgeName: "$doc.Judge Name"
+            }
+          }
+        }
+      },
+      {
+        $replaceRoot: {
+          newRoot: {
+            $mergeObjects: [
+              "$primaryDoc", 
+              { 
+                allCases: "$allCases", 
+                totalCasesCount: { $size: "$allCases" } 
+              }
+            ]
+          }
+        }
+      },
+      {
+        $facet: {
+          totalCount: [{ $count: "count" }],
+          inCustodyCount: [
+            {
+              $match: {
+                $or: [
+                  { "Release Date": { $exists: false } },
+                  { "Release Date": null },
+                  { "Release Date": "" },
+                  { "Release Date": " " }
+                ]
+              }
+            },
+            { $count: "count" }
+          ],
+          data: [{ $skip: skip }, { $limit: limit }]
+        }
+      }
+    ];
+
+    const result = await PrisonerRecord.aggregate(aggregationPipeline);
+
+    const facetResult = result[0] || {};
+    const totalCount = facetResult.totalCount?.[0]?.count || 0;
+    const inCustodyCount = facetResult.inCustodyCount?.[0]?.count || 0;
+    const releasedCount = Math.max(0, totalCount - inCustodyCount);
+    const records = facetResult.data || [];
+
+    return res.status(200).json({
+      success: true,
+      count: records.length,
+      totalCount,
+      inCustodyCount,
+      releasedCount,
+      currentPage: page,
+      totalPages: Math.ceil(totalCount / limit),
+      prisoners: records
+    });
+
+  } catch (error) {
+    console.error('Database Error in getAllConvictedPrisoners:', error);
+    return res.status(500).json({ 
+      success: false, 
+      message: 'Server error while fetching convicted prisoner records.',
+      error: error.message 
+    });
+  }
+};
+
+
+
+
 module.exports = {
  
   getRecordsByRegisterNo,
@@ -335,4 +470,5 @@ module.exports = {
   getPrisonerRecords,
   getAllPrisoners,
   updatePrisoner,
+  getAllConvictedPrisoners,
 };

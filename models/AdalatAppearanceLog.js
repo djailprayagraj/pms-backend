@@ -21,7 +21,7 @@ const AdalatAppearanceLogSchema = new mongoose.Schema(
       required: [true, 'Father Name is required'],
       trim: true,
     },
-    gender: { type: String, default: 'Male' }, // newly added 
+    gender: { type: String, default: 'Male' },
     barrack: {
       type: String,
       default: '6-B',
@@ -41,10 +41,6 @@ const AdalatAppearanceLogSchema = new mongoose.Schema(
     // ==========================================
     // 2. ADALAT DATE & APPEARANCE MODE METADATA
     // ==========================================
-    /**
-     * ADALAT DATE / HEARING DATE
-     * Stores the specific date when the prisoner went to or was scheduled for Adalat/VC
-     */
     hearingDate: {
       type: Date,
       required: [true, 'Adalat hearing date is required'],
@@ -52,7 +48,7 @@ const AdalatAppearanceLogSchema = new mongoose.Schema(
     },
     appearanceMode: {
       type: String,
-      enum: ['VC', 'SESSION_ADALAT'], // SESSION_ADALAT implies Physical Court Adalat
+      enum: ['VC', 'SESSION_ADALAT'],
       required: [true, 'Appearance mode (VC or SESSION_ADALAT) is required'],
       index: true,
     },
@@ -67,7 +63,7 @@ const AdalatAppearanceLogSchema = new mongoose.Schema(
     // ==========================================
     attended: {
       type: Boolean,
-      default: true, // true = Went / Produced, false = Did not go
+      default: true,
       index: true,
     },
     nonAttendanceReason: {
@@ -105,25 +101,29 @@ const AdalatAppearanceLogSchema = new mongoose.Schema(
     // ==========================================
     // 5. RIHA / CUSTODY STATUS SECTION
     // ==========================================
-    /**
-     * RIHA OR ACTIVE CUSTODY STATUS
-     * Tracks whether the prisoner is currently in custody or released (RIHA)
-     */
     custodyStatus: {
       type: String,
-      enum: ['ACTIVE_CUSTODY', 'RIHA'], // 'RIHA' = Released, 'ACTIVE_CUSTODY' = Still in Jail
+      enum: ['ACTIVE_CUSTODY', 'RIHA'],
       default: 'ACTIVE_CUSTODY',
       index: true,
     },
 
     // ==========================================
-    // 6. WARRANT TYPE SNAPSHOT
+    // 6. WARRANT TYPE & COUNT SNAPSHOT
     // ==========================================
     warrantType: {
       type: String,
       enum: ['167/187', '209/232', '309/346'],
       required: [true, 'Warrant type is required'],
       index: true,
+    },
+    /**
+     * Number of warrants going to court with the prisoner
+     */
+    warrantCount: {
+      type: Number,
+      default: 1,
+      min: [1, 'Warrant count must be at least 1'],
     },
 
     // ==========================================
@@ -161,10 +161,6 @@ const AdalatAppearanceLogSchema = new mongoose.Schema(
       },
     },
 
-    /**
-     * RIHA STATUS TRANSITION LOG
-     * Records the date and values when an inmate's status changed to/from RIHA
-     */
     custodyStatusTransition: {
       fromStatus: {
         type: String,
@@ -182,7 +178,7 @@ const AdalatAppearanceLogSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, // Automatically handles createdAt and updatedAt
+    timestamps: true,
   }
 );
 
