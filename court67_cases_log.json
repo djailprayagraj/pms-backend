@@ -2,7 +2,7 @@
   {
     "courtNo": "67",
     "startTime": "2026-11-02T09:55:25.782Z",
-    "endTime": null,
+    "endTime": "2026-11-05T06:11:52.307Z",
     "lastActiveTime": "2026-11-02T10:00:21.571Z",
     "serialNo": "221",
     "listType": "Daily Cause List",
@@ -12,6 +12,2022 @@
       "title": "NAVYANSH PANDEY ALIAS NAVANSH PANDEY Vs. STATE OF-           U.P",
       "petitionerCounsels": "PRAFUL DEV SHUKLA,VISHAKHA PANDE,YASHASWIN VENUGOPAL BAJPAI,Sr. Advocate,SHAILENDRA PRATAP SINGH, RAMESH KUMAR SINGH",
       "respondentCounsel": "ZAFAR ABBAS,SARVE NAZIR,BRIJESH KUMAR PANDEY,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T06:11:52.307Z",
+    "endTime": "2026-11-05T06:16:59.879Z",
+    "lastActiveTime": "2026-11-05T06:16:48.704Z",
+    "serialNo": "24",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34516/2026",
+      "title": "NAEEM @ NAEEMUDDIN Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "PUSHPA JOSHI,DIVYANSHI JOSHI,GHANSHYAM JOSHI",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T06:16:59.879Z",
+    "endTime": "2026-11-05T06:22:03.930Z",
+    "lastActiveTime": "2026-11-05T06:21:52.701Z",
+    "serialNo": "25",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34518/2026",
+      "title": "AMAN Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "CHANDRAJEET",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T06:22:03.930Z",
+    "endTime": "2026-11-05T06:30:08.283Z",
+    "lastActiveTime": "2026-11-05T06:29:57.076Z",
+    "serialNo": "20",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/34494/2026",
+      "title": "SHADAB Vs. STATE OF U.P. AND ANOTHER...",
+      "petitionerCounsels": "SHAHRUKH,KUSHAGRA SRIVASTAVA,SAUMYA SRIVASTAVA",
+      "respondentCounsel": "G.A., ANAND JI MISHRA, KAUSHAL KUMAR PANDEY"
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T06:30:08.283Z",
+    "endTime": "2026-11-05T06:37:28.407Z",
+    "lastActiveTime": "2026-11-05T06:37:17.210Z",
+    "serialNo": "26",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34522/2026",
+      "title": "VINEET Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "SUYASH MEHROTRA,PRANAV TIWARY",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T06:37:28.407Z",
+    "endTime": "2026-11-05T06:41:48.669Z",
+    "lastActiveTime": "2026-11-05T06:41:37.446Z",
+    "serialNo": "27",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34534/2026",
+      "title": "GULAB URF SACHCHIDANAND Vs. STATE OF U.P. AND 3 O-          THER",
+      "petitionerCounsels": "ALIND KUMAR,DEEPANSHI,LALOO YADAV,NARENDRA KUMAR",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T06:41:48.669Z",
+    "endTime": "2026-11-05T06:46:45.784Z",
+    "lastActiveTime": "2026-11-05T06:46:34.238Z",
+    "serialNo": "28",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34535/2026",
+      "title": "AJAY RAJPUT Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "RAKESH KUMAR PANDEY,ASHISH KUMAR DUBEY",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T06:46:45.784Z",
+    "endTime": "2026-11-05T06:50:04.780Z",
+    "lastActiveTime": "2026-11-05T06:49:53.306Z",
+    "serialNo": "29",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34539/2026",
+      "title": "JABIR Vs. STATE OF U.P.",
+      "petitionerCounsels": "RIZWAN ULLAH SIDDIQUI",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T06:50:04.780Z",
+    "endTime": "2026-11-05T06:52:46.787Z",
+    "lastActiveTime": "2026-11-05T06:52:35.203Z",
+    "serialNo": "31",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34554/2026",
+      "title": "TAUFIQ Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "PIYUSH PATEL,PRADEEP KUMAR",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T06:52:46.787Z",
+    "endTime": "2026-11-05T06:53:55.846Z",
+    "lastActiveTime": "2026-11-05T06:53:44.603Z",
+    "serialNo": "32",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34566/2026",
+      "title": "ASHU Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "RUPENDRA KUMAR MISHRA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T06:53:55.846Z",
+    "endTime": "2026-11-05T07:00:14.080Z",
+    "lastActiveTime": "2026-11-05T06:59:57.816Z",
+    "serialNo": "34",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35445/2026",
+      "title": "JITENDRA SINGH @ SHAILENDRA SINGH Vs. STATE OF U.-          P. AND 3 OTHER",
+      "petitionerCounsels": "YATISH KUMAR DWIVEDI,SUNIT KUMAR",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T07:00:14.080Z",
+    "endTime": "2026-11-05T07:03:52.319Z",
+    "lastActiveTime": "2026-11-05T07:03:40.837Z",
+    "serialNo": "35",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35446/2026",
+      "title": "ARJUN GUPTA Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "PIYUSH PATEL,PRADEEP KUMAR",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T07:03:52.319Z",
+    "endTime": "2026-11-05T07:04:15.119Z",
+    "lastActiveTime": "2026-11-05T07:04:03.791Z",
+    "serialNo": "36",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35451/2026",
+      "title": "ABHAY MAAN Vs. STATE OF U.P. AND ANOTHER",
+      "petitionerCounsels": "DEVENDRA SINGH,PRAVINDRA SINGH",
+      "respondentCounsel": "RAJESH KUMAR,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T07:04:15.119Z",
+    "endTime": "2026-11-05T07:10:07.848Z",
+    "lastActiveTime": "2026-11-05T07:09:56.495Z",
+    "serialNo": "37",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35453/2026",
+      "title": "GULSHAN RAJBHAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "SANJAY KUMAR MISHRA,AASHIRWAD MISHRA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T07:10:07.848Z",
+    "endTime": "2026-11-05T07:15:37.668Z",
+    "lastActiveTime": "2026-11-05T07:15:26.434Z",
+    "serialNo": "38",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35463/2026",
+      "title": "SATYADEV @ SATYAVEER Vs. STATE OF U.P. AND 3 OTHE-          R",
+      "petitionerCounsels": "DEVASHISH MITRA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T07:15:37.668Z",
+    "endTime": "2026-11-05T07:19:23.485Z",
+    "lastActiveTime": "2026-11-05T07:19:12.291Z",
+    "serialNo": "39",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35467/2026",
+      "title": "MANOJ Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "LAL PRABHAKAR SINGH,AVINASH",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T07:19:23.485Z",
+    "endTime": "2026-11-05T07:24:28.723Z",
+    "lastActiveTime": "2026-11-05T07:24:17.385Z",
+    "serialNo": "40",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35468/2026",
+      "title": "VIDYASAGAR @ TUNNU MADHESIYA Vs. STATE OF U.P. AN-          D 3 OTHER",
+      "petitionerCounsels": "VIJAY LAXMI SINGH,NEETU PAL",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T07:24:28.723Z",
+    "endTime": "2026-11-05T07:26:58.560Z",
+    "lastActiveTime": "2026-11-05T07:26:46.967Z",
+    "serialNo": "41",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35473/2026",
+      "title": "SHAHJAD Vs. STATE OF U.P.",
+      "petitionerCounsels": "MOHD. ASHRAF",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T07:26:58.560Z",
+    "endTime": "2026-11-05T08:40:12.549Z",
+    "lastActiveTime": "2026-11-05T08:40:01.303Z",
+    "serialNo": "42",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35478/2026",
+      "title": "SONU @ RAJENDRA Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "PRATEEK SRIVASTAVA,HARIOM AWASTHI",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T08:40:12.549Z",
+    "endTime": "2026-11-05T08:44:08.864Z",
+    "lastActiveTime": "2026-11-05T08:43:57.672Z",
+    "serialNo": "255",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/29007/2026",
+      "title": "AKRAM BEG Vs. STATE OF U.P.",
+      "petitionerCounsels": "ATIQUR RAHMAN SIDDIQUI,NAFEES AHMAD",
+      "respondentCounsel": "CHANDRA KUMAR RAI,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T08:44:08.864Z",
+    "endTime": "2026-11-05T08:47:55.968Z",
+    "lastActiveTime": "2026-11-05T08:47:44.756Z",
+    "serialNo": "43",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35486/2026",
+      "title": "SHIVAM KUMAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "AJAY KUMAR MISHRA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T08:47:55.968Z",
+    "endTime": "2026-11-05T08:52:37.789Z",
+    "lastActiveTime": "2026-11-05T08:52:26.598Z",
+    "serialNo": "32",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34566/2026",
+      "title": "ASHU Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "RUPENDRA KUMAR MISHRA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T08:52:37.789Z",
+    "endTime": "2026-11-05T08:53:11.352Z",
+    "lastActiveTime": "2026-11-05T08:53:00.166Z",
+    "serialNo": "45",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35504/2026",
+      "title": "GAURAV Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "MANOJ KUMAR TIWARI",
+      "respondentCounsel": "SUNITA CHAUHAN,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T08:53:11.352Z",
+    "endTime": "2026-11-05T08:57:29.190Z",
+    "lastActiveTime": "2026-11-05T08:57:18.019Z",
+    "serialNo": "46",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35510/2026",
+      "title": "ANKUSH JAIN Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "RAGHUBIR SINGH",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T08:57:29.190Z",
+    "endTime": "2026-11-05T08:57:40.435Z",
+    "lastActiveTime": "2026-11-05T08:57:29.190Z",
+    "serialNo": "47",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35512/2026",
+      "title": "AAMIR Vs. STATE OF U.P.",
+      "petitionerCounsels": "ATUL KUMAR",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T08:57:40.435Z",
+    "endTime": "2026-11-05T09:01:58.140Z",
+    "lastActiveTime": "2026-11-05T09:01:46.902Z",
+    "serialNo": "48",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35516/2026",
+      "title": "VIKKY CHAUHAN Vs. STATE OF U.P.",
+      "petitionerCounsels": "PRADEEP KUMAR SINGH",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:01:58.140Z",
+    "endTime": "2026-11-05T09:03:05.806Z",
+    "lastActiveTime": "2026-11-05T09:02:54.641Z",
+    "serialNo": "47",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35512/2026",
+      "title": "AAMIR Vs. STATE OF U.P.",
+      "petitionerCounsels": "ATUL KUMAR",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:03:05.806Z",
+    "endTime": "2026-11-05T09:07:45.959Z",
+    "lastActiveTime": "2026-11-05T09:07:34.791Z",
+    "serialNo": "51",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35527/2026",
+      "title": "ANKIT YADAV Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "MAHESH KUMAR SAHANI,NARENDRA SINGH,AWANEESHA KUMAR",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:07:45.959Z",
+    "endTime": "2026-11-05T09:10:34.779Z",
+    "lastActiveTime": "2026-11-05T09:10:23.166Z",
+    "serialNo": "50",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35526/2026",
+      "title": "ADITYA KUMAR @ AMIT Vs. STATE OF U.P. AND ANOTHER",
+      "petitionerCounsels": "DIPAK SRIVASTAVA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:10:34.779Z",
+    "endTime": "2026-11-05T09:12:28.247Z",
+    "lastActiveTime": "2026-11-05T09:12:16.723Z",
+    "serialNo": "52",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35528/2026",
+      "title": "SAURABH GAUTAM Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "RIPUSUDAN DUBEY,SAVITA DUBEY",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:12:28.247Z",
+    "endTime": "2026-11-05T09:22:02.719Z",
+    "lastActiveTime": "2026-11-05T09:21:51.571Z",
+    "serialNo": "54",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35532/2026",
+      "title": "GYAN SINGH Vs. STATE OF U.P.",
+      "petitionerCounsels": "JITENDRA RANA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:22:02.719Z",
+    "endTime": "2026-11-05T09:22:47.777Z",
+    "lastActiveTime": "2026-11-05T09:22:36.551Z",
+    "serialNo": "225",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/39162/2025",
+      "title": "SURAJ KESARWANI Vs. STATE OF U.P.",
+      "petitionerCounsels": "SUNITA CHAUHAN,DEV RAJ SINGH,RAJRSHI GUPTA,SHAIWAL KUMAR GUPTA,RIZWAN AHAMAD",
+      "respondentCounsel": "ASHVANI TRIPATHI,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:22:47.777Z",
+    "endTime": "2026-11-05T09:34:48.843Z",
+    "lastActiveTime": "2026-11-05T09:34:37.300Z",
+    "serialNo": "226",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/40182/2025",
+      "title": "WAGESH Vs. STATE OF U.P.",
+      "petitionerCounsels": "MANVENDRA SINGH,SAURABH YADAV,SHANTANU,NEHA RANI,RAY SAHAB YADAV,SATYVENDRA SINGH YADAV,MOHD AADIL RAZA",
+      "respondentCounsel": "SAMRAT VIKRAM SINGH,BRAJESH KUMAR SOLANKI,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:34:48.843Z",
+    "endTime": "2026-11-05T09:36:29.614Z",
+    "lastActiveTime": "2026-11-05T09:36:18.459Z",
+    "serialNo": "227",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/40865/2025",
+      "title": "HARISCHANDRA BIND Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "ASHUTOSH UPADHYAY,KAILASH NATH",
+      "respondentCounsel": "VISHNU KANT TIWARI,DIKSHA VERMA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:36:29.614Z",
+    "endTime": "2026-11-05T09:38:10.922Z",
+    "lastActiveTime": "2026-11-05T09:37:59.742Z",
+    "serialNo": "228",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/42311/2025",
+      "title": "VIDESHI SHAHNI Vs. STATE OF U.P.",
+      "petitionerCounsels": "SANDEEP KUMAR SRIVASTAVA,PREM PRAKASH",
+      "respondentCounsel": "SURENDRA MOHAN MISHRA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:38:10.922Z",
+    "endTime": "2026-11-05T09:38:33.465Z",
+    "lastActiveTime": "2026-11-05T09:38:22.105Z",
+    "serialNo": "229",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/42347/2025",
+      "title": "PRADEEP KUMAR PRAJAPATI Vs. STATE OF U.P.",
+      "petitionerCounsels": "VIRENDRA KUMAR YADAV,RAJEEV KUMAR SAXENA,CHANDRA PRAKASH SINGH,SHAD KHAN,PRANAV MISHRA,JAY SINGH YADAV,BHARAT SINGH",
+      "respondentCounsel": "PANKAJ DWIVEDI,JITENDRA KUMAR PANDEY,RAJESH KUMAR SRIVASTAVA,DHIRENDRA KUMAR SRIVASTAV,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:38:33.465Z",
+    "endTime": "2026-11-05T09:45:28.194Z",
+    "lastActiveTime": "2026-11-05T09:45:17.070Z",
+    "serialNo": "230",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/42395/2025",
+      "title": "PUSHPRAJ KUSHWAHA Vs. STATE OF U.P.",
+      "petitionerCounsels": "MANOJ KUMAR SINGH,SWATANTRA SINGH",
+      "respondentCounsel": "BIRENDRA KUMAR GAUTAM,JAGDEESH NARAYAN,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T09:45:28.194Z",
+    "endTime": "2026-11-05T10:21:31.635Z",
+    "lastActiveTime": "2026-11-05T10:21:20.443Z",
+    "serialNo": "229",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/42347/2025",
+      "title": "PRADEEP KUMAR PRAJAPATI Vs. STATE OF U.P.",
+      "petitionerCounsels": "VIRENDRA KUMAR YADAV,RAJEEV KUMAR SAXENA,CHANDRA PRAKASH SINGH,SHAD KHAN,PRANAV MISHRA,JAY SINGH YADAV,BHARAT SINGH",
+      "respondentCounsel": "PANKAJ DWIVEDI,JITENDRA KUMAR PANDEY,RAJESH KUMAR SRIVASTAVA,DHIRENDRA KUMAR SRIVASTAV,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-05T10:21:31.635Z",
+    "endTime": "2026-11-06T03:52:28.319Z",
+    "lastActiveTime": "2026-11-05T14:34:51.378Z",
+    "serialNo": "231",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/43845/2025",
+      "title": "ANUJ CHAUHAN @ SHIVA CHAUHAN Vs. STATE OF U.P.",
+      "petitionerCounsels": "DINESH KUMAR PANDEY",
+      "respondentCounsel": "PRAKASH VEER TRIPATHI,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:30:25.480Z",
+    "endTime": "2026-11-06T04:34:12.758Z",
+    "lastActiveTime": "2026-11-06T04:34:01.576Z",
+    "serialNo": "1",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33659/2026",
+      "title": "KARAN RAJBHAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "RAJIV CHOWDHURY",
+      "respondentCounsel": "AKHILESH KUMAR SINGH,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:34:12.758Z",
+    "endTime": "2026-11-06T04:38:42.294Z",
+    "lastActiveTime": "2026-11-06T04:38:30.961Z",
+    "serialNo": "3",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33665/2026",
+      "title": "KARAN Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "ALAUDDIN,FAKHRUDDIN",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:38:42.294Z",
+    "endTime": "2026-11-06T04:38:53.893Z",
+    "lastActiveTime": "2026-11-06T04:38:42.294Z",
+    "serialNo": "4",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33672/2026",
+      "title": "PRINCE VERMA Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "DHIRENDRA SINGH RAJPUT",
+      "respondentCounsel": "SHABISTA PARVEEN,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:38:53.893Z",
+    "endTime": "2026-11-06T04:45:27.328Z",
+    "lastActiveTime": "2026-11-06T04:45:16.133Z",
+    "serialNo": "5",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33677/2026",
+      "title": "KUNAL @ MANNU Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "RAM BABU SHARMA,ARDHENDU SHEKHAR SHARMA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:45:27.328Z",
+    "endTime": "2026-11-06T04:48:05.415Z",
+    "lastActiveTime": "2026-11-06T04:47:54.200Z",
+    "serialNo": "6",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33698/2026",
+      "title": "KARAN Vs. STATE OF U.P.",
+      "petitionerCounsels": "BRIJESH KUMAR SRIVASTAVA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:48:05.415Z",
+    "endTime": "2026-11-06T04:48:16.629Z",
+    "lastActiveTime": "2026-11-06T04:48:05.415Z",
+    "serialNo": "8",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33740/2026",
+      "title": "RAMLAKHAN BIND @ GHASI Vs. STATE OF U.P. AND 3 OT-          HER",
+      "petitionerCounsels": "SUDARSHAN SINGH",
+      "respondentCounsel": "DHIRENDRA KUMAR SRIVASTAVA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:48:16.629Z",
+    "endTime": "2026-11-06T04:48:39.038Z",
+    "lastActiveTime": "2026-11-06T04:48:27.829Z",
+    "serialNo": "10",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33748/2026",
+      "title": "ANIL JAISWAL Vs. STATE OF U.P. AND 4 OTHERS",
+      "petitionerCounsels": "VIMAL KUMAR PANDEY,SAKSHI JAISWAL",
+      "respondentCounsel": "THAKUR PRASAD DUBEY,SAMEER RANJAN,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:48:39.038Z",
+    "endTime": "2026-11-06T04:52:57.933Z",
+    "lastActiveTime": "2026-11-06T04:52:46.752Z",
+    "serialNo": "11",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33749/2026",
+      "title": "RAVI RAJBHAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "UDAY SHANKAR TIWARI,ARVIND KUMAR VERMA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:52:57.933Z",
+    "endTime": "2026-11-06T04:53:09.294Z",
+    "lastActiveTime": "2026-11-06T04:52:57.933Z",
+    "serialNo": "13",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33766/2026",
+      "title": "SATYAM KUMAR Vs. STATE OF U.P.  AND 3 OTHERS",
+      "petitionerCounsels": "SATISH KUMAR",
+      "respondentCounsel": "SANJAY KUMAR RAI,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:53:09.294Z",
+    "endTime": "2026-11-06T04:53:20.548Z",
+    "lastActiveTime": "2026-11-06T04:53:09.294Z",
+    "serialNo": "15",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33801/2026",
+      "title": "PRADEEP YADAV Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "SWATI AGRAWAL SRIVASTAVA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:53:20.548Z",
+    "endTime": "2026-11-06T04:56:53.787Z",
+    "lastActiveTime": "2026-11-06T04:56:42.612Z",
+    "serialNo": "16",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34396/2026",
+      "title": "JAGDISHNAND @  JAGDISH Vs. STATE OF U.P. AND 3 OT-          HER",
+      "petitionerCounsels": "KULDEEP SINGH CHAHAR",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:56:53.787Z",
+    "endTime": "2026-11-06T04:58:57.281Z",
+    "lastActiveTime": "2026-11-06T04:58:46.087Z",
+    "serialNo": "17",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34478/2026",
+      "title": "SARVESH KUMAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "PRADEEP KUMAR",
+      "respondentCounsel": "SUSHMITA TRIPATHI,DIVYANSHU PATHAK,SURAJ UPADHYAY,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T04:58:57.281Z",
+    "endTime": "2026-11-06T05:03:27.071Z",
+    "lastActiveTime": "2026-11-06T05:03:15.884Z",
+    "serialNo": "18",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34520/2026",
+      "title": "VINAY YADAV @ VINOD YADAV Vs. STATE OF U.P.",
+      "petitionerCounsels": "NIKIL PATHAK,LAVKUSH YADAV",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:03:27.071Z",
+    "endTime": "2026-11-06T05:04:11.878Z",
+    "lastActiveTime": "2026-11-06T05:04:00.692Z",
+    "serialNo": "20",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34537/2026",
+      "title": "IRFAN ALI Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "BHAJU RAM PPRASAD SHARMA,ARVIND KUMAR SRIVASTAVA",
+      "respondentCounsel": "CHANDRA PRAKASH SRIVASTAVA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:04:11.878Z",
+    "endTime": "2026-11-06T05:04:45.979Z",
+    "lastActiveTime": "2026-11-06T05:04:34.500Z",
+    "serialNo": "1",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/33659/2026",
+      "title": "KARAN RAJBHAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "RAJIV CHOWDHURY",
+      "respondentCounsel": "AKHILESH KUMAR SINGH,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:04:45.979Z",
+    "endTime": "2026-11-06T05:04:57.201Z",
+    "lastActiveTime": "2026-11-06T05:04:45.979Z",
+    "serialNo": "2",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/33661/2026",
+      "title": "NAUSHAD Vs. STATE OF U.P.",
+      "petitionerCounsels": "DHIRENDRA KUMAR SRIVASTAVA",
+      "respondentCounsel": "SANJAY TIWARI,GYANDHAR DUBE,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:04:57.201Z",
+    "endTime": "2026-11-06T05:06:04.570Z",
+    "lastActiveTime": "2026-11-06T05:05:53.354Z",
+    "serialNo": "4",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/33672/2026",
+      "title": "PRINCE VERMA Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "DHIRENDRA SINGH RAJPUT",
+      "respondentCounsel": "SHABISTA PARVEEN,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:06:04.570Z",
+    "endTime": "2026-11-06T05:06:15.785Z",
+    "lastActiveTime": "2026-11-06T05:06:04.570Z",
+    "serialNo": "5",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/33677/2026",
+      "title": "KUNAL @ MANNU Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "RAM BABU SHARMA,ARDHENDU SHEKHAR SHARMA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:06:15.785Z",
+    "endTime": "2026-11-06T05:11:43.036Z",
+    "lastActiveTime": "2026-11-06T05:11:31.822Z",
+    "serialNo": "7",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/33711/2026",
+      "title": "ASAD KHAN @ MOHAMMAD ASAD Vs. STATE OF U.P. AND 3-           OTHER",
+      "petitionerCounsels": "NEEJA SRIVASTAVA,RAJAN SRIVASTAVA",
+      "respondentCounsel": "PRAKASH VEER TRIPATHI,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:11:43.036Z",
+    "endTime": "2026-11-06T05:12:16.806Z",
+    "lastActiveTime": "2026-11-06T05:12:05.584Z",
+    "serialNo": "9",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/33745/2026",
+      "title": "SULTAN SINGH @ BHURA Vs. STATE OF U.P. AND 3 OTHE-          R",
+      "petitionerCounsels": "PREM BABU VERMA,KUMARI POONAM RAJPOOT,ANITA SINGH",
+      "respondentCounsel": "SANJAY KUMAR,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:12:16.806Z",
+    "endTime": "2026-11-06T05:12:28.023Z",
+    "lastActiveTime": "2026-11-06T05:12:16.806Z",
+    "serialNo": "10",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/33748/2026",
+      "title": "ANIL JAISWAL Vs. STATE OF U.P. AND 4 OTHERS",
+      "petitionerCounsels": "VIMAL KUMAR PANDEY,SAKSHI JAISWAL",
+      "respondentCounsel": "THAKUR PRASAD DUBEY,SAMEER RANJAN,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:12:28.023Z",
+    "endTime": "2026-11-06T05:13:12.804Z",
+    "lastActiveTime": "2026-11-06T05:13:01.580Z",
+    "serialNo": "12",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/33761/2026",
+      "title": "AMAN KUMAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "ADESH KUMAR,BARKHA CHAUDHARY",
+      "respondentCounsel": "VIJETA SRIVASTAVA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:13:12.804Z",
+    "endTime": "2026-11-06T05:14:42.857Z",
+    "lastActiveTime": "2026-11-06T05:14:31.632Z",
+    "serialNo": "13",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/33766/2026",
+      "title": "SATYAM KUMAR Vs. STATE OF U.P.  AND 3 OTHERS",
+      "petitionerCounsels": "SATISH KUMAR",
+      "respondentCounsel": "SANJAY KUMAR RAI,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:14:42.857Z",
+    "endTime": "2026-11-06T05:14:54.215Z",
+    "lastActiveTime": "2026-11-06T05:14:42.857Z",
+    "serialNo": "14",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/33796/2026",
+      "title": "ALOK NISHAD Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "JITENDRA SINGH",
+      "respondentCounsel": "SUNEEL KUMAR YADAV,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:14:54.215Z",
+    "endTime": "2026-11-06T05:15:05.671Z",
+    "lastActiveTime": "2026-11-06T05:14:54.215Z",
+    "serialNo": "15",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/33801/2026",
+      "title": "PRADEEP YADAV Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "SWATI AGRAWAL SRIVASTAVA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:15:05.671Z",
+    "endTime": "2026-11-06T05:15:17.090Z",
+    "lastActiveTime": "2026-11-06T05:15:05.671Z",
+    "serialNo": "17",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/34478/2026",
+      "title": "SARVESH KUMAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "PRADEEP KUMAR",
+      "respondentCounsel": "SUSHMITA TRIPATHI,DIVYANSHU PATHAK,SURAJ UPADHYAY,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:15:17.090Z",
+    "endTime": "2026-11-06T05:15:28.406Z",
+    "lastActiveTime": "2026-11-06T05:15:17.090Z",
+    "serialNo": "19",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/34532/2026",
+      "title": "DIVYANSHU Vs. STATE OF U.P.",
+      "petitionerCounsels": "CHANDRA PRAKASH PANDEY,SAURABH SHUKLA",
+      "respondentCounsel": "SWAYAM PRAKASH OJHA,AJAY KUMAR,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:15:28.406Z",
+    "endTime": "2026-11-06T05:16:02.532Z",
+    "lastActiveTime": "2026-11-06T05:15:51.272Z",
+    "serialNo": "20",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/34537/2026",
+      "title": "IRFAN ALI Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "BHAJU RAM PPRASAD SHARMA,ARVIND KUMAR SRIVASTAVA",
+      "respondentCounsel": "CHANDRA PRAKASH SRIVASTAVA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:16:02.532Z",
+    "endTime": "2026-11-06T05:22:08.185Z",
+    "lastActiveTime": "2026-11-06T05:21:56.948Z",
+    "serialNo": "22",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34582/2026",
+      "title": "AMAN Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "SANDEEP TRIPATHI",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:22:08.185Z",
+    "endTime": "2026-11-06T05:28:53.505Z",
+    "lastActiveTime": "2026-11-06T05:28:42.335Z",
+    "serialNo": "24",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34606/2026",
+      "title": "GAURAV Vs. STATE OF U.P.",
+      "petitionerCounsels": "DEVVRAT MISRA,Sr. Advocate",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:28:53.505Z",
+    "endTime": "2026-11-06T05:33:46.594Z",
+    "lastActiveTime": "2026-11-06T05:33:35.315Z",
+    "serialNo": "26",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34614/2026",
+      "title": "MANISH @ HASTAL Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "AJAY KUMAR",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:33:46.594Z",
+    "endTime": "2026-11-06T05:40:30.189Z",
+    "lastActiveTime": "2026-11-06T05:40:18.974Z",
+    "serialNo": "27",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34626/2026",
+      "title": "SHRIRAM @ SHIVA Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "YOGESH KUMAR SRIVASTAVA,SITANSHU SHARMA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:40:30.189Z",
+    "endTime": "2026-11-06T05:40:41.816Z",
+    "lastActiveTime": "2026-11-06T05:40:30.189Z",
+    "serialNo": "28",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34627/2026",
+      "title": "INTAJAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "SHAMS UZ ZAMAN,QUASIM KHAN",
+      "respondentCounsel": "SANDEEP KUMAR SINGH,ALOK KUMAR,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:40:41.816Z",
+    "endTime": "2026-11-06T05:40:52.992Z",
+    "lastActiveTime": "2026-11-06T05:40:41.816Z",
+    "serialNo": "29",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34631/2026",
+      "title": "ASIF @ AASHIQ Vs. STATE OF U.P. AND ANOTHER",
+      "petitionerCounsels": "ZAFAR ABBAS,SARVE NAZIR",
+      "respondentCounsel": "MANOJ PANDEY,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:40:52.992Z",
+    "endTime": "2026-11-06T05:41:05.617Z",
+    "lastActiveTime": "2026-11-06T05:40:52.992Z",
+    "serialNo": "30",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34643/2026",
+      "title": "JITENDRA KUMAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "KRISHNA KANT YADAV",
+      "respondentCounsel": "DHARMENDRA KUMAR CHAUBEY,SUNIL KUMAR SHUKLA,INDRA DEV MISHRA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:41:05.617Z",
+    "endTime": "2026-11-06T05:48:45.879Z",
+    "lastActiveTime": "2026-11-06T05:48:34.623Z",
+    "serialNo": "31",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34651/2026",
+      "title": "AMIT SINGH  @ BILLU Vs. STATE OF U.P.",
+      "petitionerCounsels": "RANJEET SINGH",
+      "respondentCounsel": "YOGENDRA SINGH,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:48:45.879Z",
+    "endTime": "2026-11-06T05:57:04.356Z",
+    "lastActiveTime": "2026-11-06T05:56:52.549Z",
+    "serialNo": "32",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34653/2026",
+      "title": "KRISHNA GOND @ SONU Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "SADDAM HUSAIN,OBAIDUR RAHMAN KHAN",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:57:04.356Z",
+    "endTime": "2026-11-06T05:58:12.534Z",
+    "lastActiveTime": "2026-11-06T05:58:00.883Z",
+    "serialNo": "34",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34675/2026",
+      "title": "SMT GUDIYA @ YASMEEN Vs. STATE OF U.P. AND 3 OTHE-          R",
+      "petitionerCounsels": "ABDUL MAJID",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T05:58:12.534Z",
+    "endTime": "2026-11-06T06:08:07.467Z",
+    "lastActiveTime": "2026-11-06T06:07:56.332Z",
+    "serialNo": "35",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34688/2026",
+      "title": "AMAN Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "PRADEEP KUMAR,ANSUMAN,VIPIN PRAKASH",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:08:07.467Z",
+    "endTime": "2026-11-06T06:13:07.862Z",
+    "lastActiveTime": "2026-11-06T06:12:56.641Z",
+    "serialNo": "37",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34715/2026",
+      "title": "PRAVEEN YADAV Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "VINOD KUMAR YADAV,GANESH MANI,SUGANDHA YADAV",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:13:07.862Z",
+    "endTime": "2026-11-06T06:16:32.799Z",
+    "lastActiveTime": "2026-11-06T06:16:21.528Z",
+    "serialNo": "38",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34718/2026",
+      "title": "KARAN Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "DHIRENDRA KUMAR SRIVASTAVA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:16:32.799Z",
+    "endTime": "2026-11-06T06:20:40.062Z",
+    "lastActiveTime": "2026-11-06T06:20:28.880Z",
+    "serialNo": "40",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35644/2026",
+      "title": "AMAN Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "VIRENDRA KUMAR MAURYA,SHALINI KUSHWAHA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:20:40.062Z",
+    "endTime": "2026-11-06T06:20:51.315Z",
+    "lastActiveTime": "2026-11-06T06:20:40.062Z",
+    "serialNo": "41",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35648/2026",
+      "title": "VIKAS YADAV @ SHIKARI Vs. STATE OF U.P. AND 3 OTH-          ER",
+      "petitionerCounsels": "PREM CHANDRA",
+      "respondentCounsel": "SIDDHARTH SINGH,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:20:51.315Z",
+    "endTime": "2026-11-06T06:21:02.843Z",
+    "lastActiveTime": "2026-11-06T06:20:51.315Z",
+    "serialNo": "42",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35650/2026",
+      "title": "ABHISHEK BHARATIYA Vs. STATE OF U.P.",
+      "petitionerCounsels": "PAVAN KUMAR SRIVASTAVA",
+      "respondentCounsel": "HARI OM SHARAN TIWARI,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:21:02.843Z",
+    "endTime": "2026-11-06T06:27:35.473Z",
+    "lastActiveTime": "2026-11-06T06:27:24.046Z",
+    "serialNo": "43",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35655/2026",
+      "title": "MANIS DUBEY Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "ANKIT SINGH",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:27:35.473Z",
+    "endTime": "2026-11-06T06:33:01.052Z",
+    "lastActiveTime": "2026-11-06T06:32:49.808Z",
+    "serialNo": "44",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35657/2026",
+      "title": "RAMESH YADAV Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "JANARDAN YADAV,AJAY YADAV,DEEKSHA SINGH,Sr. Advocate",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:33:01.052Z",
+    "endTime": "2026-11-06T06:37:47.065Z",
+    "lastActiveTime": "2026-11-06T06:37:35.804Z",
+    "serialNo": "45",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35661/2026",
+      "title": "AKSHAY KUMAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "G.S.CHAUHAN",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:37:47.065Z",
+    "endTime": "2026-11-06T06:42:20.097Z",
+    "lastActiveTime": "2026-11-06T06:42:08.719Z",
+    "serialNo": "46",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35662/2026",
+      "title": "RAVI Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "SALMAN AHMAD",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:42:20.097Z",
+    "endTime": "2026-11-06T06:51:23.945Z",
+    "lastActiveTime": "2026-11-06T06:51:12.574Z",
+    "serialNo": "12",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33761/2026",
+      "title": "AMAN KUMAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "ADESH KUMAR,BARKHA CHAUDHARY",
+      "respondentCounsel": "VIJETA SRIVASTAVA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:51:23.945Z",
+    "endTime": "2026-11-06T06:51:35.180Z",
+    "lastActiveTime": "2026-11-06T06:51:23.945Z",
+    "serialNo": "47",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35663/2026",
+      "title": "MAHIPAL Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "SYED ABBAS SHAUKAT ABIDI,SYED ALI SHAUKAT (ABIDI),SYED AHMED FAIZAN",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:51:35.180Z",
+    "endTime": "2026-11-06T06:51:46.434Z",
+    "lastActiveTime": "2026-11-06T06:51:35.180Z",
+    "serialNo": "48",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35666/2026",
+      "title": "ISTKHAR Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "CHANDRA SHEKHAR MISHRA,NITIN TRIPATHI",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:51:46.434Z",
+    "endTime": "2026-11-06T06:57:42.377Z",
+    "lastActiveTime": "2026-11-06T06:57:31.069Z",
+    "serialNo": "50",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35668/2026",
+      "title": "AKASH Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "JAI PRAKASH PRASAD",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T06:57:42.377Z",
+    "endTime": "2026-11-06T07:01:18.989Z",
+    "lastActiveTime": "2026-11-06T07:01:07.594Z",
+    "serialNo": "51",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35671/2026",
+      "title": "SACHIN Vs. STATE OF UP AND  3 OTHERS",
+      "petitionerCounsels": "MANISH KUMAR KASHYAP,MANISH KUMAR KASHYAP",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T07:01:18.989Z",
+    "endTime": "2026-11-06T07:06:18.308Z",
+    "lastActiveTime": "2026-11-06T07:06:06.918Z",
+    "serialNo": "52",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35673/2026",
+      "title": "SHUBHAM @ RAJ @ MONTU Vs. STATE OF U.P. AND 3 OTH-          ER",
+      "petitionerCounsels": "MERAJ KHAN",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T07:06:18.308Z",
+    "endTime": "2026-11-06T07:07:37.767Z",
+    "lastActiveTime": "2026-11-06T07:07:26.446Z",
+    "serialNo": "53",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35681/2026",
+      "title": "RAMMILAN @ RAHUL SINGH Vs. STATE OF U.P.",
+      "petitionerCounsels": "RAMESH KUMAR PANDAY",
+      "respondentCounsel": "SHASHI KANT,RAJIV KUMAR MISHRA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T07:07:37.767Z",
+    "endTime": "2026-11-06T07:13:57.772Z",
+    "lastActiveTime": "2026-11-06T07:13:46.516Z",
+    "serialNo": "54",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35682/2026",
+      "title": "GULAB ANSARI Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "VINOD KUMAR YADAV,GANESH MANI,SUGANDHA YADAV",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T07:13:57.772Z",
+    "endTime": "2026-11-06T07:14:20.625Z",
+    "lastActiveTime": "2026-11-06T07:14:09.221Z",
+    "serialNo": "55",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35683/2026",
+      "title": "BALDEV Vs. STATE OF U.P.",
+      "petitionerCounsels": "RUDRA PRATAP SINGH",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T07:14:20.625Z",
+    "endTime": "2026-11-06T07:20:16.501Z",
+    "lastActiveTime": "2026-11-06T07:20:04.580Z",
+    "serialNo": "56",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35689/2026",
+      "title": "DEVRAJ SAINI Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "ASHUTOSH TRIPATHI,MANISH GUPTA",
+      "respondentCounsel": "ALKA UPADHYAY,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T07:20:16.501Z",
+    "endTime": "2026-11-06T07:22:47.620Z",
+    "lastActiveTime": "2026-11-06T07:22:35.919Z",
+    "serialNo": "57",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35696/2026",
+      "title": "KRISHNA YADAV Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "RAJEEV KUMAR SINGH PARMAR",
+      "respondentCounsel": "VIVEK KUMAR SINGH,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T07:22:47.620Z",
+    "endTime": "2026-11-06T07:24:44.109Z",
+    "lastActiveTime": "2026-11-06T07:24:32.344Z",
+    "serialNo": "58",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35700/2026",
+      "title": "AJAY Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "KULDIP SINGH YADAV",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T07:24:44.109Z",
+    "endTime": "2026-11-06T07:26:04.043Z",
+    "lastActiveTime": "2026-11-06T07:25:52.707Z",
+    "serialNo": "59",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35705/2026",
+      "title": "GOVIND SINGH Vs. STATE OF U.P.",
+      "petitionerCounsels": "YOGENDRA SINGH",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T07:26:04.043Z",
+    "endTime": "2026-11-06T08:40:15.616Z",
+    "lastActiveTime": "2026-11-06T08:40:04.324Z",
+    "serialNo": "60",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35707/2026",
+      "title": "MANISH Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "ANIL KUMAR SHUKLA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T08:40:15.616Z",
+    "endTime": "2026-11-06T08:46:32.464Z",
+    "lastActiveTime": "2026-11-06T08:46:18.580Z",
+    "serialNo": "61",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35716/2026",
+      "title": "ASHISH KUMAR SINGH Vs. STATE OF U.P.",
+      "petitionerCounsels": "AKHILENDRA SINGH,AMLAAN KUMAR SINGH",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T08:46:32.464Z",
+    "endTime": "2026-11-06T08:51:40.969Z",
+    "lastActiveTime": "2026-11-06T08:51:29.706Z",
+    "serialNo": "63",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35741/2026",
+      "title": "ISLAM MOHAMMAD Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "DHIRENDRA KUMAR SRIVASTAVA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T08:51:40.969Z",
+    "endTime": "2026-11-06T08:51:52.463Z",
+    "lastActiveTime": "2026-11-06T08:51:40.969Z",
+    "serialNo": "64",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35746/2026",
+      "title": "ASHISH Vs. STATE OF U.P. AND 4 OTHERS",
+      "petitionerCounsels": "SHRI PRAKASH DWIVEDI",
+      "respondentCounsel": "BIJAY KUMAR SRIVASTAVA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T08:51:52.463Z",
+    "endTime": "2026-11-06T08:54:07.736Z",
+    "lastActiveTime": "2026-11-06T08:53:56.430Z",
+    "serialNo": "65",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35747/2026",
+      "title": "RAM PRAKASH ALIAS DINESH Vs. STATE OF U.P.",
+      "petitionerCounsels": "AMIT KUMAR SINGH",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T08:54:07.736Z",
+    "endTime": "2026-11-06T09:01:52.897Z",
+    "lastActiveTime": "2026-11-06T09:01:41.650Z",
+    "serialNo": "67",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35759/2026",
+      "title": "SADDAM Vs. STATE OF U.P. AND ANOTHER",
+      "petitionerCounsels": "RAMA SHANKAR MISHRA,JAY HANUMAN PANDEY",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:01:52.897Z",
+    "endTime": "2026-11-06T09:08:07.445Z",
+    "lastActiveTime": "2026-11-06T09:07:56.043Z",
+    "serialNo": "68",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35761/2026",
+      "title": "MANISH VERMA Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "MANISH KUMAR SINGH,RAMANAND",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:08:07.445Z",
+    "endTime": "2026-11-06T09:13:57.910Z",
+    "lastActiveTime": "2026-11-06T09:13:46.520Z",
+    "serialNo": "69",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35774/2026",
+      "title": "DIVYA MISHRA ALIAS SATYAM MISHRA Vs. STATE OF U.P-          . AND 3 OTHER",
+      "petitionerCounsels": "PHOOL SINGH YADAV,VAIBHAV YADAV",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:13:57.910Z",
+    "endTime": "2026-11-06T09:18:07.679Z",
+    "lastActiveTime": "2026-11-06T09:17:56.371Z",
+    "serialNo": "71",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35787/2026",
+      "title": "ADITYA KUSHWAHA Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "SANJEEV KUMAR SINGH",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:18:07.679Z",
+    "endTime": "2026-11-06T09:19:27.506Z",
+    "lastActiveTime": "2026-11-06T09:19:16.173Z",
+    "serialNo": "73",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35800/2026",
+      "title": "ZISHAN Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "DEVASHISH MITRA,BHARAT SINGH",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:19:27.506Z",
+    "endTime": "2026-11-06T09:19:38.809Z",
+    "lastActiveTime": "2026-11-06T09:19:27.506Z",
+    "serialNo": "74",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35806/2026",
+      "title": "VIKASH KUMAR BHARTIYA Vs. STATE OF U.P. AND 3 OTH-          ER",
+      "petitionerCounsels": "UMESH CHANDRA TIWARI,JAY PRAKASH PANDEY",
+      "respondentCounsel": "RITESH VISHWAKARMA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:19:38.809Z",
+    "endTime": "2026-11-06T09:20:12.794Z",
+    "lastActiveTime": "2026-11-06T09:20:01.510Z",
+    "serialNo": "75",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35812/2026",
+      "title": "SHAREEF Vs. STATE OF U.P. AND ANOTHER",
+      "petitionerCounsels": "KUSHAGRA SRIVASTAVA,SHAHRUKH,SAUMYA SRIVASTAVA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:20:12.794Z",
+    "endTime": "2026-11-06T09:20:24.451Z",
+    "lastActiveTime": "2026-11-06T09:20:12.794Z",
+    "serialNo": "77",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35820/2026",
+      "title": "SHAHZAD Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "RUPESH KUMAR SINGH,RUKME ALAM",
+      "respondentCounsel": "ZAFEER AHMAD,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:20:24.451Z",
+    "endTime": "2026-11-06T09:24:56.030Z",
+    "lastActiveTime": "2026-11-06T09:24:44.847Z",
+    "serialNo": "78",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35822/2026",
+      "title": "MUNSAD Vs. STATE OF U.P.",
+      "petitionerCounsels": "SHUBHAM SRIVASTAVA,SUNIL KUMAR SRIVASTAVA",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:24:56.030Z",
+    "endTime": "2026-11-06T09:25:18.499Z",
+    "lastActiveTime": "2026-11-06T09:25:07.282Z",
+    "serialNo": "79",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35825/2026",
+      "title": "SIKINDER SADA Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "MUMTAZ ALI",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:25:18.499Z",
+    "endTime": "2026-11-06T09:29:25.138Z",
+    "lastActiveTime": "2026-11-06T09:29:13.911Z",
+    "serialNo": "80",
+    "listType": "List of Fresh Cases",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/35827/2026",
+      "title": "SAHEBAN Vs. STATE OF U.P. THOUGH IT PRINCIPAL SEC-          RETARY (HOME)  AND 3 OTHER",
+      "petitionerCounsels": "ATUL KUMAR,G.A.",
+      "respondentCounsel": ""
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:29:25.138Z",
+    "endTime": "2026-11-06T09:30:09.915Z",
+    "lastActiveTime": "2026-11-06T09:29:58.730Z",
+    "serialNo": "272",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/40634/2025",
+      "title": "RANJEET SINGH ALIAS KRISHNAVEER Vs. STATE OF U.P.",
+      "petitionerCounsels": "MAHENDRA PAL SINGH CHAUHAN,TARUNESH KUMAR SRIVASTAVA",
+      "respondentCounsel": "DEVESH KUMAR SHUKLA,DHARMESH KUMAR SHUKLA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:30:09.915Z",
+    "endTime": "2026-11-06T09:30:32.364Z",
+    "lastActiveTime": "2026-11-06T09:30:21.145Z",
+    "serialNo": "284",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/32227/2026",
+      "title": "FARHAN Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "SAUMITRA DWIVEDI,AADARSH MOHAN PANDEY,MOHAMMAD NASIR,AMINUDDIN,SHEEBA RIZVI",
+      "respondentCounsel": "GAURAV KUMAR SHUKLA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:30:32.364Z",
+    "endTime": "2026-11-06T09:30:43.688Z",
+    "lastActiveTime": "2026-11-06T09:30:32.364Z",
+    "serialNo": "285",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/33153/2026",
+      "title": "BHAGWANT @ CHHUTTAN Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "MANVENDRA SINGH,PRAMOD KUMAR SINGH",
+      "respondentCounsel": "SUNIL KUMAR MISHRA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:30:43.688Z",
+    "endTime": "2026-11-06T09:34:40.295Z",
+    "lastActiveTime": "2026-11-06T09:34:28.896Z",
+    "serialNo": "286",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/34217/2026",
+      "title": "BANTY PATHAK Vs. STATE OF U.P.",
+      "petitionerCounsels": "ARUN KUMAR BHATT,RAMESH CHANDRA SINGH YADAW",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:34:40.295Z",
+    "endTime": "2026-11-06T09:34:51.565Z",
+    "lastActiveTime": "2026-11-06T09:34:40.295Z",
+    "serialNo": "271",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "ABAILC/29/2026",
+      "title": "SMT ARTI PATEL Vs. STATE OF U.P. AND ANOTHER",
+      "petitionerCounsels": "PANKAJ MISRA,G.A.",
+      "respondentCounsel": "KAMLESH PRASAD,VED PRAKASH"
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:34:51.565Z",
+    "endTime": "2026-11-06T09:35:02.894Z",
+    "lastActiveTime": "2026-11-06T09:34:51.565Z",
+    "serialNo": "274",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/42100/2025",
+      "title": "YASHPAL Vs. STATE OF U.P.",
+      "petitionerCounsels": "ZAHID KHAN,SANDIP KUMAR SHUKLA,AYAN AHMED,JAYANT RAI",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:35:02.894Z",
+    "endTime": "2026-11-06T09:35:14.313Z",
+    "lastActiveTime": "2026-11-06T09:35:02.894Z",
+    "serialNo": "278",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/44649/2025",
+      "title": "KRISHNA PRATAP SINGH Vs. STATE OF U.P.",
+      "petitionerCounsels": "YOGENDRA KUMAR SRIVASTAVA",
+      "respondentCounsel": "DEVESH KUMAR SHUKLA,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:35:14.313Z",
+    "endTime": "2026-11-06T09:35:25.548Z",
+    "lastActiveTime": "2026-11-06T09:35:14.313Z",
+    "serialNo": "280",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/45383/2025",
+      "title": "RAMGOPAL @ MOTA Vs. STATE OF U.P. AND 3 OTHERS",
+      "petitionerCounsels": "ASHVNI MISHRA,VED PRAKASH PATHAK",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:35:25.548Z",
+    "endTime": "2026-11-06T09:35:36.834Z",
+    "lastActiveTime": "2026-11-06T09:35:25.548Z",
+    "serialNo": "281",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAIL/45512/2025",
+      "title": "ANKIT Vs. STATE OF U.P.",
+      "petitionerCounsels": "RAY SAHAB YADAV,SURESH KUMAR YADAV,AJAY KUMAR",
+      "respondentCounsel": "YOGESH KUMAR SRIVASTAVA,NOOR MUHAMMAD,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:35:36.834Z",
+    "endTime": "2026-11-06T09:35:48.048Z",
+    "lastActiveTime": "2026-11-06T09:35:36.834Z",
+    "serialNo": "290",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAILC/549/2025",
+      "title": "MANJU KUMARI Vs. STATE OF U.P. AND ANOTHER",
+      "petitionerCounsels": "RUPENDRA KUMAR MISHRA",
+      "respondentCounsel": "SUBODH PANDEY,G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "67",
+    "startTime": "2026-11-06T09:35:48.048Z",
+    "endTime": null,
+    "lastActiveTime": "2026-11-06T09:36:10.697Z",
+    "serialNo": "292",
+    "listType": "Daily Cause List",
+    "progress": null,
+    "caseDetails": {
+      "caseNumber": "BAILC/560/2025",
+      "title": "MINTU DEVI Vs. STATE OF U.P. AND ANOTHER",
+      "petitionerCounsels": "DILEEP KUMAR SINGH,RAKESH CHANDRA",
+      "respondentCounsel": "SUDARSHAN SINGH,G.A."
     },
     "importantInformation": null
   }

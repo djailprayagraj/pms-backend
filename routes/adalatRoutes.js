@@ -6,11 +6,13 @@ const {
   getAdalatByDate,
   deleteAdalatEntry,
   removeDuplicateAdalatRecords,
+  getAllCourts,
+  feedNewCourt,
 } = require('../controllers/adalatController');
 
 // @route   POST /api/adalat/feed
 // @desc    Feed list of Adalat appearance records
-router.post('/feed', postAdalatEntries);
+router.post('/feed', postAdalatEntries);          // posting a new adalat or vc entry 
 
 // @route   PUT /api/adalat/:id
 // @desc    Update specific entry data by ID (warrant type, court, status, etc.)
@@ -23,6 +25,15 @@ router.get('/date/:date', getAdalatByDate);
 // 5. Delete single entry by record MongoDB _id
 // DELETE /api/adalat/:id
 router.delete('/:id', deleteAdalatEntry);
+
+
+// @route  - get all courts
+// @desc   - GET     /api/adalat/getAllCourts
+router.get('/getAllCourts', getAllCourts);
+
+// @route  - feed new court to the db
+// @desc   - POST     /api/adalat/feedNewCourt
+router.post('/getAllCourts', feedNewCourt);
 
 
 router.get('/cleanData',removeDuplicateAdalatRecords);

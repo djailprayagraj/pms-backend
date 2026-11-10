@@ -1,5 +1,6 @@
 const AdalatAppearanceLog = require('../models/AdalatAppearanceLog');
 const PrisonerRecord = require('../models/PrisonerRecord');
+const CourtDesignation = require('../models/CourtDesignation');
 
 const ALLOWED_WARRANTS = ['167/187', '209/232', '309/346'];
 
@@ -444,10 +445,94 @@ const removeDuplicateAdalatRecords = async (req, res) => {
   }
 };
 
+
+
+
+/**
+ * @desc    GET - Brings the list of all courts from the backend 
+ * @route   GET /api/adalat/getAllCourts
+ */
+const getAllCourts = async (req, res) => {
+  try {
+    // Sort by sr_no so they appear in proper order
+    const listOfAllCourts = await CourtDesignation.find().sort({ sr_no: 1 });
+    
+    return res.status(200).json({
+      success: true,
+      count: listOfAllCourts.length,
+      data: listOfAllCourts,
+    });
+  } catch (error) {
+    console.error('Error fetching courts:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Server Error while fetching courts',
+      error: error.message,
+    });
+  }
+};
+
+
+
+/**
+ * @desc    POST - Feed or add a new court designation (future-proofing for new courts)
+ * @route   POST /api/adalat/feedNewCourt
+ */
+const feedNewCourt = async (req, res) => {
+  try {
+    const { designation, sr_no } = req.body;
+
+    if (!designation) {
+      return res.status(400).json({
+        success: false,
+        message: 'Designation is required',
+      });
+    }
+
+    // Check if court already exists
+    const existingCourt = await CourtDesignation.findOne({ designation: designation.trim() });
+    if (existingCourt) {
+      return res.status(400).json({
+        success: false,
+        message: 'This court designation already exists.',
+      });
+    }
+
+    // If sr_no is not provided, automatically calculate the next serial number
+    let finalSrNo = sr_no;
+    if (!finalSrNo) {
+      const lastCourt = await CourtDesignation.findOne().sort({ sr_no: -1 });
+      finalSrNo = lastCourt ? lastCourt.sr_no + 1 : 1;
+    }
+
+    // Create and save the new court
+    const newCourt = await CourtDesignation.create({
+      sr_no: finalSrNo,
+      designation: designation.trim(),
+    });
+
+    return res.status(201).json({
+      success: true,
+      message: 'New court successfully added!',
+      data: newCourt,
+    });
+  } catch (error) {
+    console.error('Error feeding new court:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Server Error while adding court',
+      error: error.message,
+    });
+  }
+};
+
+
 module.exports = {
   postAdalatEntries,
   putAdalatEntryByUtNumber,
   getAdalatByDate,
   deleteAdalatEntry,
   removeDuplicateAdalatRecords,
+  getAllCourts,
+  feedNewCourt,
 };

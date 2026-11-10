@@ -17,7 +17,8 @@ const dataRoutes = require('./routes/dataRoutes'); // to upload files to backen
 const fetchRecordsRoutes = require('./routes/fetchRecordsRoutes');
 const hearingRoutes = require('./routes/hearingRoutes');
 const adalatRoutes = require('./routes/adalatRoutes');
-// const allahabadhighcourt = require('./routes/allHcRoutes');
+const universalAdalatRoutes = require('./routes/universalAdalatRoutes');
+//  const allahabadhighcourt = require('./routes/allHcRoutes');
 // Routes end over here 
 
 
@@ -78,6 +79,7 @@ app.use('/api/data', dataRoutes); // to uploaf files on backend  /api/data/impor
 app.use('/api/prisoners', fetchRecordsRoutes);
 app.use('/api/hearings', hearingRoutes);
 app.use('/api/adalat', adalatRoutes);
+app.use('/api/adalat', universalAdalatRoutes);
 // app.use('/api/HC', allahabadhighcourt);
 
 // Start the server

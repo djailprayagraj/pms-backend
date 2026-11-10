@@ -19,7 +19,7 @@ router.get('/duty', getRecordsByDutyPoint);
 router.get('/insights', getPrisonerInsights);
 router.get('/all',getAllPrisoners); // used in frontend users side All Prisoners side nav
 router.get('/convicted', getAllConvictedPrisoners); // veeru get all convicted
-router.put('/:id', updatePrisoner);
+router.put('/:id', updatePrisoner); // at frontend all prisoners Update 
 
 module.exports = router;
 
