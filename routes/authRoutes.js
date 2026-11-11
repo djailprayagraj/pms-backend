@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { loginUser , createUser} = require('../controllers/authController');
+const { loginUser , deleteUserAdmin} = require('../controllers/authController');
 
 
 
@@ -10,6 +10,12 @@ const { loginUser , createUser} = require('../controllers/authController');
 //@Path - /api/auth/login    
 router.post('/login', loginUser);
 
-// router.post('/createUser', createUser);
+
+//@METHOD - DELETE
+//@ACCESS - USER / ADMIN
+//@Path - /api/auth/users/:id    
+router.delete('/users/:id', deleteUserAdmin);
+
+
 
 module.exports = router;

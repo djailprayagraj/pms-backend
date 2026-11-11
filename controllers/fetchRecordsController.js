@@ -1,6 +1,7 @@
 // fetchRecordsController.js
 
 const PrisonerRecord = require("../models/PrisonerRecord");
+const  AdalatAppearanceLog = require("../models/AdalatAppearanceLog");
 
 /**
  * Controller to fetch prisoner records based on query parameters:
@@ -24,7 +25,6 @@ const getPrisonerRecords = async (req, res) => {
     // 3. Search by FIR / Case Number (Handles flexible prefixes like FIR-, CR-, Case -, etc.)
     else if (firNo) {
       const cleanFir = firNo.trim().replace(/^(fir|cr|case)\s*[-:]?\s*/i, '');
-      // This regex matches "111/2012" whether stored as "FIR - 111/2012", "CR-111/2012", or "111/2012"
       query['FIR/Case No'] = { $regex: new RegExp(cleanFir, 'i') };
     } else {
       return res.status(400).json({ 
@@ -51,26 +51,106 @@ const getPrisonerRecords = async (req, res) => {
       });
     }
 
+    // Fetch logs from AdalatAppearanceLog for this prisoner's RegisterNo (utNumber)
+    const targetUtNumber = records[0].RegisterNo;
+    const adalatLogs = targetUtNumber ? await AdalatAppearanceLog.find({ utNumber: targetUtNumber }) : [];
+
+    // Map firNumber -> warrantType and firNumber -> adalat courtName for quick O(1) lookups
+    const warrantMap = new Map();
+    const adalatCourtMap = new Map();
+
+    adalatLogs.forEach(log => {
+      if (log.firNumber) {
+        const normalizedFir = log.firNumber.trim().toUpperCase();
+        if (log.warrantType) {
+          warrantMap.set(normalizedFir, log.warrantType);
+        }
+        if (log.courtName && log.courtName.trim().toUpperCase() !== 'N/A') {
+          adalatCourtMap.set(normalizedFir, log.courtName.trim());
+        }
+      }
+    });
+
+    // Resolution priority:
+    // 1. AdalatAppearanceLog courtName
+    // 2. Record's Court Name
+    // 3. Record's Judge Name
+    // 4. 'N/A'
+    const resolveCourtAndJudge = (record, normalizedFir) => {
+      const adalatCourt = adalatCourtMap.get(normalizedFir);
+      if (adalatCourt) {
+        return adalatCourt;
+      }
+
+      const rawCourt = record['Court Name'] ? record['Court Name'].trim() : '';
+      const rawJudge = record['Judge Name'] ? record['Judge Name'].trim() : '';
+
+      const isCourtInvalid = !rawCourt || rawCourt.toUpperCase() === 'N/A';
+      const isJudgeInvalid = !rawJudge || rawJudge.toUpperCase() === 'N/A';
+
+      if (!isCourtInvalid) {
+        return rawCourt;
+      }
+      if (!isJudgeInvalid) {
+        return rawJudge;
+      }
+      return 'N/A';
+    };
+
+    // Deduplicate raw data and cases using a Map based on 'FIR/Case No'
+    const uniqueRawMap = new Map();
+    const uniqueCasesMap = new Map();
+    
+    records.forEach(record => {
+      const firKey = record['FIR/Case No'] || record._id.toString();
+      const normalizedFir = record['FIR/Case No'] ? record['FIR/Case No'].trim().toUpperCase() : '';
+      
+      // Resolve unified court/judge value following priority hierarchy
+      const unifiedValue = resolveCourtAndJudge(record, normalizedFir);
+
+      // Resolve Warrant Type safely with fallback chain
+      const resolvedWarrantType = warrantMap.get(normalizedFir) || 
+                                  (record.ImprisonmentType && record.ImprisonmentType.trim() !== '' ? record.ImprisonmentType.trim() : '167/187');
+
+      // Store unique raw documents with synchronized fields and explicit warrantType
+      if (!uniqueRawMap.has(firKey)) {
+        const rawObj = record.toObject ? record.toObject() : { ...record };
+        rawObj['Court Name'] = unifiedValue;
+        rawObj['Judge Name'] = unifiedValue;
+        rawObj['warrantType'] = resolvedWarrantType;
+        uniqueRawMap.set(firKey, rawObj);
+      }
+
+      // Store unique formatted cases
+      if (!uniqueCasesMap.has(firKey)) {
+        uniqueCasesMap.set(firKey, {
+          firNo: record['FIR/Case No'],
+          actSection: record['Act Section'],
+          psName: record['PS Name'],
+          courtName: unifiedValue,
+          judgeName: unifiedValue,
+          warrantType: resolvedWarrantType,
+          isRiha: record['Status(True Or False)'] === 'True' || record['Release Date'] ? true : false,
+        });
+      }
+    });
+
+    const uniqueRawData = Array.from(uniqueRawMap.values());
+    const uniqueCases = Array.from(uniqueCasesMap.values());
+
     // Return structured response
     return res.status(200).json({
       success: true,
-      count: records.length,
-      utNumber: records[0].RegisterNo || "N/A",
-      prisonerName: records[0]['Prisoner Name'],
-      fatherName: records[0]['Father Name'],
-      barrack: records[0].Barrack || 'N/A',
-      gender: records[0].Gender,
-      age: records[0].Age,
-      totalCases: records.length,
-      cases: records.map(record => ({
-        firNo: record['FIR/Case No'],
-        actSection: record['Act Section'],
-        psName: record['PS Name'],
-        courtName: record['Court Name'],
-        warrantType: record.ImprisonmentType || 'Standard',
-        isRiha: record['Status(True Or False)'] === 'True' || record['Release Date'] ? true : false,
-      })),
-      rawData: records // Full documents if needed
+      count: uniqueCases.length,
+      utNumber: uniqueRawData[0].RegisterNo || "N/A",
+      prisonerName: uniqueRawData[0]['Prisoner Name'],
+      fatherName: uniqueRawData[0]['Father Name'],
+      barrack: uniqueRawData[0].Barrack || 'N/A',
+      gender: uniqueRawData[0].Gender,
+      age: uniqueRawData[0].Age,
+      totalCases: uniqueCases.length,
+      cases: uniqueCases,
+      rawData: uniqueRawData
     });
 
   } catch (error) {
@@ -82,9 +162,6 @@ const getPrisonerRecords = async (req, res) => {
     });
   }
 };
-
-
-
 
 
 /**

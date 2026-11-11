@@ -78,7 +78,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/data', dataRoutes); // to uploaf files on backend  /api/data/import
 app.use('/api/prisoners', fetchRecordsRoutes);
 app.use('/api/hearings', hearingRoutes);
-app.use('/api/adalat', adalatRoutes);
+app.use('/api/adalat', adalatRoutes);         // for vc and session adalat feeding only 
 app.use('/api/adalat', universalAdalatRoutes);
 // app.use('/api/HC', allahabadhighcourt);
 

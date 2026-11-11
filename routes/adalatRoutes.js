@@ -31,6 +31,7 @@ router.delete('/:id', deleteAdalatEntry);
 // @desc   - GET     /api/adalat/getAllCourts
 router.get('/getAllCourts', getAllCourts);
 
+
 // @route  - feed new court to the db
 // @desc   - POST     /api/adalat/feedNewCourt
 router.post('/getAllCourts', feedNewCourt);

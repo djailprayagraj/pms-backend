@@ -125,8 +125,37 @@ const addUser = async (req, res) => {
   }
 };
 
+
+// @desc    Add New User / Staff
+// @route   POST /api/auth/
+const deleteUserAdmin = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Optional: Prevent admin from deleting themselves
+    if (req.user && req.user._id.toString() === id) {
+      return res.status(400).json({ success: false, message: "You cannot delete your own admin account." });
+    }
+
+    const deletedUser = await User.findByIdAndDelete(id);
+
+    if (!deletedUser) {
+      return res.status(404).json({ success: false, message: "User not found." });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "User deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).json({ success: false, message: "Server error while deleting user." });
+  }
+};
+
 // Export both controllers properly
 module.exports = {
   loginUser,
   addUser,
+  deleteUserAdmin,
 };
