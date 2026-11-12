@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const prisonerRecordSchema = new mongoose.Schema({
   PID: { type: Number, index: true },      
-  JID: { type: String, index: true },   //      77-3917-2026-UT  , this suffix in the last tells the actual type of prisoner UT/CT
-  'Prisoner Name': { type: String, index: true },   // ANIL MAURYA (5701/25) @ (UT-427/26) 
+  JID: { type: String, index: true },   // e.g., 77-3917-2026-UT (suffix tells UT/CT)
+  'Prisoner Name': { type: String, index: true }, 
   'Father Name': String,
   Gender: String,
   Age: Number,
-  'FIR/Case No': String,
+  'FIR/Case No': { type: String, index: true },
   'PS Name': String,
   'Prisoner Alias Name': String,
   'Mother Name': String,
@@ -19,14 +19,14 @@ const prisonerRecordSchema = new mongoose.Schema({
   PresentDistrict: String,
   PresentState: String,
   'Jail Name': String,
-  'Prisoner Type': String,              // This tells whether a prisoner is UT/CT
+  'Prisoner Type': String,              // UT/CT
   Ward: String,
   Barrack: String,
-  RegisterNo: String,                   // this is ut/ct number, changes when a prisoner is convicted
+  RegisterNo: { type: String, index: true }, // UT/CT number
   'Period Undergone(Days)': Number,
   'First Admission Date': String,
   'Latest Admission Date': String,
-  'Release Date': String,
+  'Release Date': { type: String, index: true },
   Tendency: String,
   ImprisonmentType: String,
   Occupation: String,
@@ -42,9 +42,9 @@ const prisonerRecordSchema = new mongoose.Schema({
   'FIR SNo': String,
   'FIR Year': Number,
   'Case No.': String,
-  'Act Section': String,    //411,413 IPC AND 4/5 EXP(S) ACT
-  'FIR Date': String,     
-  'Court Name': String,   // by default it shows Alld District Court 
+  'Act Section': String,
+  'FIR Date': String,    
+  'Court Name': String, 
   'Judge Name': String,
   'Action Code': String,
   'Action Date': String,
@@ -57,6 +57,12 @@ const prisonerRecordSchema = new mongoose.Schema({
   Nationality: String,
   'PS District': String,
   'PS State': String,
+  location: {
+    type: String,
+    enum: ['IN', 'OT'],
+    default: 'IN',
+    index: true
+  },
   'Status(True Or False)': String
 }, { timestamps: true });
 

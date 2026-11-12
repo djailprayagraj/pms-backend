@@ -1,0 +1,34 @@
+[
+  {
+    "courtNo": "65",
+    "startTime": "2026-11-12T04:38:35.639Z",
+    "endTime": "2026-11-12T04:41:03.017Z",
+    "lastActiveTime": "2026-11-12T04:40:51.686Z",
+    "serialNo": "3",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/38743/2026",
+      "title": "FAIZAN Vs. STATE OF U.P.",
+      "petitionerCounsels": "DILEEP KUMAR",
+      "respondentCounsel": "G.A."
+    },
+    "importantInformation": null
+  },
+  {
+    "courtNo": "65",
+    "startTime": "2026-11-12T04:41:03.017Z",
+    "endTime": null,
+    "lastActiveTime": "2026-11-12T04:41:48.738Z",
+    "serialNo": "4",
+    "listType": "List of Fresh Cases",
+    "progress": "Revised",
+    "caseDetails": {
+      "caseNumber": "BAIL/38821/2026",
+      "title": "RABBANI Vs. STATE OF U.P.",
+      "petitionerCounsels": "RUKME ALAM",
+      "respondentCounsel": "ARUN KUMAR VERMA,PRABHAT KUMAR SINGH,G.A."
+    },
+    "importantInformation": null
+  }
+]

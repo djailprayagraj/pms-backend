@@ -37,26 +37,101 @@ const importDataToDb = async (req, res) => {
       });
     }
 
-    // 5. Bulk insert records into MongoDB using PrisonerRecord model
-    // { ordered: false } allows valid documents to insert even if duplicate key errors occur
-    const insertedRecords = await PrisonerRecord.insertMany(jsonData, { ordered: false });
+    // 5. Detect file type based on whether the 'location' or 'Location' column exists
+    const hasLocationColumn = jsonData.some(
+      (row) => row.location !== undefined || row.Location !== undefined
+    );
 
-    return res.status(201).json({
-      success: true,
-      message: `Successfully imported ${insertedRecords.length} prisoner records into MongoDB.`,
-      count: insertedRecords.length,
-      sampleRecord: insertedRecords[0],
-    });
+    if (hasLocationColumn) {
+      // ==========================================
+      // SCENARIO A: Location-Only File Upload
+      // ==========================================
+      const bulkOperations = jsonData
+        .filter((row) => row.RegisterNo && String(row.RegisterNo).trim() !== '')
+        .map((row) => {
+          const locValue = row.location !== undefined ? row.location : row.Location;
+          return {
+            updateMany: {
+              filter: { RegisterNo: String(row.RegisterNo).trim() },
+              update: {
+                $set: {
+                  location: String(locValue).trim().toUpperCase(),
+                },
+              },
+            },
+          };
+        });
+
+      if (bulkOperations.length === 0) {
+        return res.status(400).json({
+          success: false,
+          message: 'No valid RegisterNo entries found in the location sheet.',
+        });
+      }
+
+      const bulkResult = await PrisonerRecord.bulkWrite(bulkOperations, { ordered: false });
+
+      return res.status(200).json({
+        success: true,
+        message: `Location sync completed. Matched ${bulkResult.matchedCount} records and updated ${bulkResult.modifiedCount} records.`,
+        matchedCount: bulkResult.matchedCount,
+        modifiedCount: bulkResult.modifiedCount,
+      });
+
+    } else {
+      // ==========================================
+      // SCENARIO B: Full Prisoner Data File Upload
+      // ==========================================
+      const bulkOperations = jsonData.map((row) => {
+        // Sanitize keys to fix MongoDB trailing dot errors (e.g., "Case No." -> "Case No")
+        const sanitizedRow = {};
+        Object.keys(row).forEach((key) => {
+          const cleanKey = key.trim().endsWith('.') ? key.trim().slice(0, -1) : key.trim();
+          sanitizedRow[cleanKey] = row[key];
+        });
+
+        const registerNo = sanitizedRow.RegisterNo ? String(sanitizedRow.RegisterNo).trim() : '';
+        const firNo = sanitizedRow['FIR/Case No'] ? String(sanitizedRow['FIR/Case No']).trim() : '';
+
+        // Composite filter to uniquely identify a case/record without duplicates
+        const filter = firNo && registerNo 
+          ? { RegisterNo: registerNo, 'FIR/Case No': firNo } 
+          : { RegisterNo: registerNo };
+
+        return {
+          updateOne: {
+            filter: filter,
+            update: { $set: sanitizedRow },
+            upsert: true // Inserts if new, updates in-place if it already exists
+          }
+        };
+      });
+
+      if (bulkOperations.length === 0) {
+        return res.status(400).json({
+          success: false,
+          message: 'The uploaded data sheet contains no valid records.',
+        });
+      }
+
+      const bulkResult = await PrisonerRecord.bulkWrite(bulkOperations, { ordered: false });
+
+      return res.status(201).json({
+        success: true,
+        message: `Successfully processed full data import.`,
+        upsertedCount: bulkResult.upsertedCount,
+        modifiedCount: bulkResult.modifiedCount,
+      });
+    }
 
   } catch (error) {
     console.error('❌ Error during Excel file extraction/MongoDB import:', error);
 
-    // Mongoose BulkWriteError / Duplicate handling
     if (error.name === 'BulkWriteError' || error.code === 11000) {
       return res.status(207).json({
         success: true,
-        message: 'Partial import completed. Some duplicate records were skipped.',
-        insertedCount: error.result ? error.result.nInserted : 0,
+        message: 'Partial import completed with some duplicate key conflicts handled.',
+        error: error.message,
       });
     }
 
@@ -67,7 +142,6 @@ const importDataToDb = async (req, res) => {
     });
   }
 };
-
 
 /**
  * @desc    Get the latest uploaded record and overall record metadata

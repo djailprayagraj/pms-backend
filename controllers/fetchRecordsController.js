@@ -278,16 +278,15 @@ const getAllPrisoners = async (req, res) => {
     const limit = parseInt(req.query.limit) || 50;
     const skip = (page - 1) * limit;
     const search = req.query.search ? req.query.search.trim() : '';
+    const status = req.query.status ? req.query.status.trim().toLowerCase() : 'all'; // 'all', 'incustody', 'released', 'transferred'
 
     let matchQuery = {};
     if (search) {
-      matchQuery = {
-        $or: [
-          { 'Prisoner Name': { $regex: search, $options: 'i' } },
-          { RegisterNo: { $regex: search, $options: 'i' } },
-          { 'FIR/Case No': { $regex: search, $options: 'i' } }
-        ]
-      };
+      matchQuery.$or = [
+        { 'Prisoner Name': { $regex: search, $options: 'i' } },
+        { RegisterNo: { $regex: search, $options: 'i' } },
+        { 'FIR/Case No': { $regex: search, $options: 'i' } }
+      ];
     }
 
     const aggregationPipeline = [
@@ -331,24 +330,27 @@ const getAllPrisoners = async (req, res) => {
           }
         }
       },
-      // ✅ Corrected: Single $facet stage with parallel branches
+      // 📊 Facet stage to compute stats and paginate filtered records using location: "IN"
       {
         $facet: {
           totalCount: [{ $count: "count" }],
           inCustodyCount: [
-            {
-              $match: {
-                $or: [
-                  { "Release Date": { $exists: false } },
-                  { "Release Date": null },
-                  { "Release Date": "" },
-                  { "Release Date": " " }
-                ]
-              }
-            },
+            { $match: { location: "IN" } },
             { $count: "count" }
           ],
-          data: [{ $skip: skip }, { $limit: limit }]
+          filteredData: [
+            ...(status === 'incustody' ? [{ $match: { location: "IN" } }] : 
+                status === 'released' ? [{ $match: { location: { $ne: "IN" } } }] : 
+                status === 'transferred' ? [{ $match: { "Transfer Status": { $regex: /transferred/i } } }] : []),
+            { $skip: skip },
+            { $limit: limit }
+          ],
+          filteredTotalCount: [
+            ...(status === 'incustody' ? [{ $match: { location: "IN" } }] : 
+                status === 'released' ? [{ $match: { location: { $ne: "IN" } } }] : 
+                status === 'transferred' ? [{ $match: { "Transfer Status": { $regex: /transferred/i } } }] : []),
+            { $count: "count" }
+          ]
         }
       }
     ];
@@ -359,7 +361,9 @@ const getAllPrisoners = async (req, res) => {
     const totalCount = facetResult.totalCount?.[0]?.count || 0;
     const inCustodyCount = facetResult.inCustodyCount?.[0]?.count || 0;
     const releasedCount = Math.max(0, totalCount - inCustodyCount);
-    const records = facetResult.data || [];
+    
+    const records = facetResult.filteredData || [];
+    const filteredTotal = facetResult.filteredTotalCount?.[0]?.count || 0;
 
     return res.status(200).json({
       success: true,
@@ -368,7 +372,7 @@ const getAllPrisoners = async (req, res) => {
       inCustodyCount,
       releasedCount,
       currentPage: page,
-      totalPages: Math.ceil(totalCount / limit),
+      totalPages: Math.ceil(filteredTotal / limit),
       prisoners: records
     });
 

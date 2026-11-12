@@ -18,6 +18,7 @@ const fetchRecordsRoutes = require('./routes/fetchRecordsRoutes');
 const hearingRoutes = require('./routes/hearingRoutes');
 const adalatRoutes = require('./routes/adalatRoutes');
 const universalAdalatRoutes = require('./routes/universalAdalatRoutes');
+const statsRoutes = require('./routes/statsRoutes');
 //  const allahabadhighcourt = require('./routes/allHcRoutes');
 // Routes end over here 
 
@@ -80,6 +81,7 @@ app.use('/api/prisoners', fetchRecordsRoutes);
 app.use('/api/hearings', hearingRoutes);
 app.use('/api/adalat', adalatRoutes);         // for vc and session adalat feeding only 
 app.use('/api/adalat', universalAdalatRoutes);
+app.use('/api/statsLog', statsRoutes);
 // app.use('/api/HC', allahabadhighcourt);
 
 // Start the server
