@@ -150,6 +150,258 @@ const getAdalatLogs = async (req, res) => {
 
 
 
+
+
+const getIndividualPrisonerStats = async (req, res) => {
+  try {
+    const {
+      utNumber = '',
+      firNumber = '',
+      prisonerName = '',
+      fatherName = '',
+      startDate = '',
+      endDate = '',
+    } = req.query;
+
+    const cleanUT = utNumber.trim();
+    const cleanFIR = firNumber.trim();
+    const cleanName = prisonerName.trim();
+    const cleanFather = fatherName.trim();
+
+    if (!cleanUT && !cleanFIR && !cleanName) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide UT Number, FIR Number, or Prisoner Name to search.',
+      });
+    }
+
+    const matchConditions = [];
+
+    // STRICT EXACT MATCH for UT Number using caret (^) and dollar ($) anchors
+    if (cleanUT) {
+      matchConditions.push({
+        $or: [
+          { utNumber: { $regex: `^${cleanUT}$`, $options: 'i' } },
+          { registerNo: { $regex: `^${cleanUT}$`, $options: 'i' } },
+        ],
+      });
+    }
+    if (cleanFIR) {
+      matchConditions.push({ firNumber: { $regex: cleanFIR, $options: 'i' } });
+    }
+    if (cleanName && cleanFather) {
+      matchConditions.push({
+        $and: [
+          { prisonerName: { $regex: cleanName, $options: 'i' } },
+          { fatherName: { $regex: cleanFather, $options: 'i' } },
+        ],
+      });
+    } else if (cleanName) {
+      matchConditions.push({ prisonerName: { $regex: cleanName, $options: 'i' } });
+    }
+
+    const baseMatch = matchConditions.length === 1 ? matchConditions[0] : { $and: matchConditions };
+
+    // Apply strict date range filtering on Adalat appearances
+    if (startDate || endDate) {
+      baseMatch.hearingDate = {};
+      if (startDate) baseMatch.hearingDate.$gte = new Date(startDate);
+      if (endDate) {
+        const endDateTime = new Date(endDate);
+        endDateTime.setHours(23, 59, 59, 999);
+        baseMatch.hearingDate.$lte = endDateTime;
+      }
+    }
+
+    const pipeline = [
+      { $match: baseMatch },
+      { $sort: { hearingDate: -1, createdAt: -1 } },
+      {
+        $facet: {
+          summaryMetrics: [
+            {
+              $group: {
+                _id: null,
+                totalProductions: { $sum: 1 },
+                attendedCount: { $sum: { $cond: [{ $eq: ['$attended', true] }, 1, 0] } },
+                missedCount: { $sum: { $cond: [{ $eq: ['$attended', false] }, 1, 0] } },
+                
+                // Mode Breakdown (VC vs Physical / Session Adalat)
+                vcCount: { $sum: { $cond: [{ $eq: ['$appearanceMode', 'VC'] }, 1, 0] } },
+                physicalCount: { $sum: { $cond: [{ $in: ['$appearanceMode', ['PHYSICAL', 'SESSION_ADALAT', 'COURT']] }, 1, 0] } },
+
+                // Warrant Totals & Mode Cross-Tabs
+                vc167: { $sum: { $cond: [{ $and: [{ $eq: ['$appearanceMode', 'VC'] }, { $regexMatch: { input: '$warrantType', regex: /167|187/i } }] }, 1, 0] } },
+                physical167: { $sum: { $cond: [{ $and: [{ $in: ['$appearanceMode', ['PHYSICAL', 'SESSION_ADALAT', 'COURT']] }, { $regexMatch: { input: '$warrantType', regex: /167|187/i } }] }, 1, 0] } },
+
+                vc209: { $sum: { $cond: [{ $and: [{ $eq: ['$appearanceMode', 'VC'] }, { $regexMatch: { input: '$warrantType', regex: /209|232/i } }] }, 1, 0] } },
+                physical209: { $sum: { $cond: [{ $and: [{ $in: ['$appearanceMode', ['PHYSICAL', 'SESSION_ADALAT', 'COURT']] }, { $regexMatch: { input: '$warrantType', regex: /209|232/i } }] }, 1, 0] } },
+
+                vc309: { $sum: { $cond: [{ $and: [{ $eq: ['$appearanceMode', 'VC'] }, { $regexMatch: { input: '$warrantType', regex: /309|346/i } }] }, 1, 0] } },
+                physical309: { $sum: { $cond: [{ $and: [{ $in: ['$appearanceMode', ['PHYSICAL', 'SESSION_ADALAT', 'COURT']] }, { $regexMatch: { input: '$warrantType', regex: /309|346/i } }] }, 1, 0] } },
+
+                firstHearingDate: { $min: '$hearingDate' },
+                lastHearingDate: { $max: '$hearingDate' },
+                distinctUTs: { $addToSet: '$utNumber' },
+                distinctFIRs: { $addToSet: '$firNumber' },
+                distinctCourts: { $addToSet: '$courtName' },
+                distinctActSections: { $addToSet: '$actSection' },
+
+                latestName: { $last: '$prisonerName' },
+                latestFatherName: { $last: '$fatherName' },
+                latestGender: { $last: '$gender' },
+                latestBarrack: { $last: '$barrack' },
+                latestDistrict: { $last: '$district' },
+                latestCourt: { $last: '$courtName' },
+                latestWarrantType: { $last: '$warrantType' },
+                latestCustodyStatus: { $last: '$custodyStatus' },
+              },
+            },
+          ],
+          courtBreakdown: [
+            {
+              $group: {
+                _id: '$courtName',
+                totalHearings: { $sum: 1 },
+                lastVisited: { $max: '$hearingDate' },
+              },
+            },
+            { $sort: { totalHearings: -1 } },
+          ],
+          firBreakdown: [
+            {
+              $group: {
+                _id: '$firNumber',
+                actSection: { $last: '$actSection' },
+                courtName: { $last: '$courtName' },
+                currentWarrant: { $last: '$warrantType' },
+                custodyStatus: { $last: '$custodyStatus' },
+                custodyDate: { $min: '$hearingDate' },
+                rihaDate: { $max: { $cond: [{ $eq: ['$custodyStatus', 'RIHA'] }, '$hearingDate', null] } },
+                totalHearings: { $sum: 1 },
+              },
+            },
+            { $sort: { lastDate: -1 } },
+          ],
+          appearanceHistory: [
+            {
+              $project: {
+                hearingDate: 1,
+                appearanceMode: 1,
+                warrantType: 1,
+                courtName: 1,
+                firNumber: 1,
+                custodyStatus: 1,
+                custodyDate: 1,
+                rihaDate: 1,
+              },
+            },
+            { $sort: { hearingDate: -1 } },
+          ],
+        },
+      },
+    ];
+
+    const [aggResult] = await AdalatAppearanceLog.aggregate(pipeline);
+    let summary = aggResult?.summaryMetrics?.[0] || null;
+
+    // Strict Exact Match filter for PrisonerRecord Master collection
+    const prisonerMasterFilter = [];
+    if (cleanUT) {
+      prisonerMasterFilter.push({
+        $or: [
+          { RegisterNo: { $regex: `^${cleanUT}$`, $options: 'i' } },
+          { utNumber: { $regex: `^${cleanUT}$`, $options: 'i' } },
+          { JID: { $regex: `^${cleanUT}$`, $options: 'i' } },
+        ],
+      });
+    }
+    if (cleanFIR) prisonerMasterFilter.push({ 'FIR/Case No': { $regex: cleanFIR, $options: 'i' } });
+    if (cleanName) prisonerMasterFilter.push({ 'Prisoner Name': { $regex: cleanName, $options: 'i' } });
+
+    const masterRecords = prisonerMasterFilter.length > 0
+      ? await PrisonerRecord.find(prisonerMasterFilter.length === 1 ? prisonerMasterFilter[0] : { $or: prisonerMasterFilter }).lean()
+      : [];
+
+    if (!summary && masterRecords.length === 0) {
+      return res.status(404).json({
+        success: false,
+        message: 'No prisoner records found matching exact UT Number search criteria.',
+      });
+    }
+
+    if (!summary && masterRecords.length > 0) {
+      const m = masterRecords[0];
+      summary = {
+        distinctUTs: [m.RegisterNo || m.utNumber || cleanUT],
+        latestName: m['Prisoner Name'] || m.name || 'Unknown',
+        latestFatherName: m['Father Name'] || m.fatherName || 'N/A',
+        latestGender: m['Gender'] || m.gender || 'Male',
+        latestBarrack: m['Ward'] || m['Barrack'] || 'Unassigned',
+        latestDistrict: m['PSDistrict'] || m['district'] || 'Prayagraj',
+        latestCourt: m['Court Name'] || m['courtName'] || 'District Court',
+        latestWarrantType: m['JudgeName'] ? `Judge: ${m['JudgeName']}` : '167/187',
+        latestCustodyStatus: m['Status'] === 'True' ? 'ACTIVE_CUSTODY' : 'RIHA',
+        distinctFIRs: [m['FIR/Case No'] || m['14-Digit FIR No'] || cleanFIR].filter(Boolean),
+        distinctActSections: [m['Act Section']].filter(Boolean),
+        totalProductions: 0,
+        vcCount: 0,
+        physicalCount: 0,
+        vc167: 0, physical167: 0,
+        vc209: 0, physical209: 0,
+        vc309: 0, physical309: 0,
+        distinctCourts: [],
+      };
+    }
+
+    return res.status(200).json({
+      success: true,
+      profile: {
+        utNumbers: summary.distinctUTs,
+        prisonerName: summary.latestName,
+        fatherName: summary.latestFatherName,
+        gender: summary.latestGender,
+        barrack: summary.latestBarrack,
+        district: summary.latestDistrict,
+        currentCourt: summary.latestCourt,
+        currentWarrantStage: summary.latestWarrantType,
+        custodyStatus: summary.latestCustodyStatus,
+        associatedFIRs: summary.distinctFIRs,
+        actSections: summary.distinctActSections.filter(Boolean),
+      },
+      masterRecords,
+      stats: {
+        totalProductions: summary.totalProductions || 0,
+        vcCount: summary.vcCount || 0,
+        physicalCount: summary.physicalCount || 0,
+        vc167: summary.vc167 || 0,
+        physical167: summary.physical167 || 0,
+        vc209: summary.vc209 || 0,
+        physical209: summary.physical209 || 0,
+        vc309: summary.vc309 || 0,
+        physical309: summary.physical309 || 0,
+        firstHearingDate: summary.firstHearingDate || null,
+        lastHearingDate: summary.lastHearingDate || null,
+      },
+      breakdowns: {
+        byCourt: aggResult?.courtBreakdown || [],
+        byFIR: aggResult?.firBreakdown || [],
+      },
+      history: aggResult?.appearanceHistory || [],
+    });
+  } catch (error) {
+    console.error('Error fetching individual prisoner stats:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Server error while fetching individual prisoner statistics.',
+      error: error.message,
+    });
+  }
+};
+
+
+
 module.exports = {
   getAdalatLogs,
+  getIndividualPrisonerStats,
 };
