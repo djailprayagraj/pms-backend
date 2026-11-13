@@ -14,15 +14,15 @@ const getPrisonerRecords = async (req, res) => {
     const { utNumber, name, firNo } = req.query;
     let query = {};
 
-    // 1. Search by UT Number (mapped to RegisterNo in jail records)
+    // 1. Search by UT Number (mapped to RegisterNo in PrisonerRecord)
     if (utNumber) {
-      query.RegisterNo = utNumber.trim(); 
+      query.RegisterNo = utNumber.trim();
     } 
-    // 2. Search by Prisoner Name (Partial, case-insensitive match)
+    // 2. Search by Prisoner Name
     else if (name) {
       query['Prisoner Name'] = { $regex: name.trim(), $options: 'i' };
     } 
-    // 3. Search by FIR / Case Number (Handles flexible prefixes like FIR-, CR-, Case -, etc.)
+    // 3. Search by FIR / Case Number
     else if (firNo) {
       const cleanFir = firNo.trim().replace(/^(fir|cr|case)\s*[-:]?\s*/i, '');
       query['FIR/Case No'] = { $regex: new RegExp(cleanFir, 'i') };
@@ -43,7 +43,6 @@ const getPrisonerRecords = async (req, res) => {
       });
     }
 
-    // If still no records found after fallback
     if (!records || records.length === 0) {
       return res.status(404).json({ 
         success: false, 
@@ -51,11 +50,21 @@ const getPrisonerRecords = async (req, res) => {
       });
     }
 
-    // Fetch logs from AdalatAppearanceLog for this prisoner's RegisterNo (utNumber)
-    const targetUtNumber = records[0].RegisterNo;
+    // Strictly fetch all PrisonerRecord entries for this RegisterNo to get the true location from PrisonerRecord
+    const targetUtNumber = records[0].RegisterNo ? records[0].RegisterNo.trim() : null;
+    const prisonerRegisterRecords = targetUtNumber
+      ? await PrisonerRecord.find({ RegisterNo: targetUtNumber })
+      : records;
+
+    // Determine location strictly from PrisonerRecord (if any record for this RegisterNo has location === 'OT', mark as 'OT')
+    const hasOutLocation = prisonerRegisterRecords.some(
+      (rec) => rec.location && rec.location.toString().trim().toUpperCase() === 'OT'
+    );
+    const resolvedLocation = hasOutLocation ? 'OT' : 'IN';
+
+    // Fetch logs from AdalatAppearanceLog ONLY for courtName and warrantType (NOT location)
     const adalatLogs = targetUtNumber ? await AdalatAppearanceLog.find({ utNumber: targetUtNumber }) : [];
 
-    // Map firNumber -> warrantType and firNumber -> adalat courtName for quick O(1) lookups
     const warrantMap = new Map();
     const adalatCourtMap = new Map();
 
@@ -71,11 +80,6 @@ const getPrisonerRecords = async (req, res) => {
       }
     });
 
-    // Resolution priority:
-    // 1. AdalatAppearanceLog courtName
-    // 2. Record's Court Name
-    // 3. Record's Judge Name
-    // 4. 'N/A'
     const resolveCourtAndJudge = (record, normalizedFir) => {
       const adalatCourt = adalatCourtMap.get(normalizedFir);
       if (adalatCourt) {
@@ -88,40 +92,36 @@ const getPrisonerRecords = async (req, res) => {
       const isCourtInvalid = !rawCourt || rawCourt.toUpperCase() === 'N/A';
       const isJudgeInvalid = !rawJudge || rawJudge.toUpperCase() === 'N/A';
 
-      if (!isCourtInvalid) {
-        return rawCourt;
-      }
-      if (!isJudgeInvalid) {
-        return rawJudge;
-      }
+      if (!isCourtInvalid) return rawCourt;
+      if (!isJudgeInvalid) return rawJudge;
       return 'N/A';
     };
 
-    // Deduplicate raw data and cases using a Map based on 'FIR/Case No'
     const uniqueRawMap = new Map();
     const uniqueCasesMap = new Map();
-    
+
     records.forEach(record => {
       const firKey = record['FIR/Case No'] || record._id.toString();
       const normalizedFir = record['FIR/Case No'] ? record['FIR/Case No'].trim().toUpperCase() : '';
       
-      // Resolve unified court/judge value following priority hierarchy
       const unifiedValue = resolveCourtAndJudge(record, normalizedFir);
-
-      // Resolve Warrant Type safely with fallback chain
       const resolvedWarrantType = warrantMap.get(normalizedFir) || 
                                   (record.ImprisonmentType && record.ImprisonmentType.trim() !== '' ? record.ImprisonmentType.trim() : '167/187');
 
-      // Store unique raw documents with synchronized fields and explicit warrantType
+      // Per-row location from PrisonerRecord (fallback to resolvedLocation for this RegisterNo)
+      const rowLocation = record.location
+        ? record.location.toString().trim().toUpperCase()
+        : resolvedLocation;
+
       if (!uniqueRawMap.has(firKey)) {
         const rawObj = record.toObject ? record.toObject() : { ...record };
         rawObj['Court Name'] = unifiedValue;
         rawObj['Judge Name'] = unifiedValue;
         rawObj['warrantType'] = resolvedWarrantType;
+        rawObj['location'] = rowLocation;
         uniqueRawMap.set(firKey, rawObj);
       }
 
-      // Store unique formatted cases
       if (!uniqueCasesMap.has(firKey)) {
         uniqueCasesMap.set(firKey, {
           firNo: record['FIR/Case No'],
@@ -131,6 +131,7 @@ const getPrisonerRecords = async (req, res) => {
           judgeName: unifiedValue,
           warrantType: resolvedWarrantType,
           isRiha: record['Status(True Or False)'] === 'True' || record['Release Date'] ? true : false,
+          location: rowLocation,
         });
       }
     });
@@ -138,13 +139,13 @@ const getPrisonerRecords = async (req, res) => {
     const uniqueRawData = Array.from(uniqueRawMap.values());
     const uniqueCases = Array.from(uniqueCasesMap.values());
 
-    // Return structured response
     return res.status(200).json({
       success: true,
       count: uniqueCases.length,
       utNumber: uniqueRawData[0].RegisterNo || "N/A",
       prisonerName: uniqueRawData[0]['Prisoner Name'],
       fatherName: uniqueRawData[0]['Father Name'],
+      location: resolvedLocation,
       barrack: uniqueRawData[0].Barrack || 'N/A',
       gender: uniqueRawData[0].Gender,
       age: uniqueRawData[0].Age,

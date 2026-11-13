@@ -527,6 +527,126 @@ const feedNewCourt = async (req, res) => {
 };
 
 
+
+// @desc    Get next hearing records with optional date range, UT number, and prisoner name filters
+// @route   GET /api/adalat/next-hearings
+const getNextHearingRecords = async (req, res) => {
+  try {
+    const { startDate, endDate, utNumber, prisonerName } = req.query;
+    const query = {};
+
+    // 1. Filter by UT Number (case-insensitive partial match)
+    if (utNumber) {
+      query.utNumber = { $regex: utNumber.trim(), $options: 'i' };
+    }
+
+    // 2. Filter by Prisoner Name (case-insensitive partial match)
+    if (prisonerName) {
+      query.prisonerName = { $regex: prisonerName.trim(), $options: 'i' };
+    }
+
+    // 3. Filter by Next Hearing Date Range
+    if (startDate || endDate) {
+      query.nextHearingDate = {};
+      if (startDate) {
+        const start = new Date(startDate);
+        start.setUTCHours(0, 0, 0, 0);
+        query.nextHearingDate.$gte = start;
+      }
+      if (endDate) {
+        const end = new Date(endDate);
+        end.setUTCHours(23, 59, 59, 999);
+        query.nextHearingDate.$lte = end;
+      }
+    }
+
+    // Fetch matching records, sorting by nextHearingDate ascending (nulls/unset last) and newest created first
+    const records = await AdalatAppearanceLog.find(query)
+      .sort({ nextHearingDate: 1, createdAt: -1 })
+      .lean();
+
+    return res.status(200).json({
+      success: true,
+      count: records.length,
+      data: records,
+    });
+  } catch (error) {
+    console.error('Error in getNextHearingRecords:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Server error while fetching next hearing records.',
+      error: error.message,
+    });
+  }
+};
+
+// @desc    Update next hearing date for a specific record
+// @route   PUT /api/adalat/update-next-hearing
+const updateNextHearingDate = async (req, res) => {
+  try {
+    const { id, nextHearingDate, remarks } = req.body;
+
+    if (!id) {
+      return res.status(400).json({
+        success: false,
+        message: 'Record ID is required.',
+      });
+    }
+
+    if (!nextHearingDate) {
+      return res.status(400).json({
+        success: false,
+        message: 'Next hearing date is required.',
+      });
+    }
+
+    const parsedDate = new Date(nextHearingDate);
+    if (isNaN(parsedDate.getTime())) {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid date format provided.',
+      });
+    }
+
+    const updateFields = {
+      nextHearingDate: parsedDate,
+    };
+
+    if (remarks !== undefined) {
+      updateFields.remarks = remarks.trim();
+    }
+
+    const updatedRecord = await AdalatAppearanceLog.findByIdAndUpdate(
+      id,
+      { $set: updateFields },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedRecord) {
+      return res.status(404).json({
+        success: false,
+        message: 'Adalat appearance record not found.',
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'Next hearing date updated successfully.',
+      data: updatedRecord,
+    });
+  } catch (error) {
+    console.error('Error in updateNextHearingDate:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Server error while updating next hearing date.',
+      error: error.message,
+    });
+  }
+};
+
+
+
+
 module.exports = {
   postAdalatEntries,
   putAdalatEntryByUtNumber,
@@ -535,4 +655,6 @@ module.exports = {
   removeDuplicateAdalatRecords,
   getAllCourts,
   feedNewCourt,
+  getNextHearingRecords,
+  updateNextHearingDate,
 };

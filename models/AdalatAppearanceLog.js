@@ -46,6 +46,11 @@ const AdalatAppearanceLogSchema = new mongoose.Schema(
       required: [true, 'Adalat hearing date is required'],
       index: true,
     },
+    // NEW: Next Hearing Date tracking
+    nextHearingDate: {
+      type: Date,
+      index: true,
+    },
     appearanceMode: {
       type: String,
       enum: ['VC', 'SESSION_ADALAT'],
@@ -117,64 +122,10 @@ const AdalatAppearanceLogSchema = new mongoose.Schema(
       required: [true, 'Warrant type is required'],
       index: true,
     },
-    /**
-     * Number of warrants going to court with the prisoner
-     */
     warrantCount: {
       type: Number,
       default: 1,
       min: [1, 'Warrant count must be at least 1'],
-    },
-
-    // ==========================================
-    // 7. DETAILED TRANSITION AUDIT LOGS
-    // ==========================================
-    warrantTypeTransition: {
-      fromWarrant: {
-        type: String,
-        enum: ['167/187', '209/232', '309/346', null],
-        default: null,
-      },
-      toWarrant: {
-        type: String,
-        enum: ['167/187', '209/232', '309/346'],
-      },
-      changedAt: {
-        type: Date,
-        default: Date.now,
-      },
-    },
-
-    courtTransition: {
-      fromCourt: {
-        type: String,
-        default: null,
-        trim: true,
-      },
-      toCourt: {
-        type: String,
-        trim: true,
-      },
-      changedAt: {
-        type: Date,
-        default: Date.now,
-      },
-    },
-
-    custodyStatusTransition: {
-      fromStatus: {
-        type: String,
-        enum: ['ACTIVE_CUSTODY', 'RIHA', null],
-        default: null,
-      },
-      toStatus: {
-        type: String,
-        enum: ['ACTIVE_CUSTODY', 'RIHA'],
-      },
-      changedAt: {
-        type: Date,
-        default: Date.now,
-      },
     },
   },
   {
@@ -182,24 +133,9 @@ const AdalatAppearanceLogSchema = new mongoose.Schema(
   }
 );
 
-// Unique Compound Index to Prevent Duplicate Entries
 AdalatAppearanceLogSchema.index(
-  {
-    utNumber: 1,
-    firNumber: 1,
-    hearingDate: 1,
-    appearanceMode: 1,
-  },
+  { utNumber: 1, firNumber: 1, hearingDate: 1, appearanceMode: 1 },
   { unique: true }
 );
-
-// Compound Index for Analytics Queries Across Ranges
-AdalatAppearanceLogSchema.index({
-  hearingDate: 1,
-  warrantType: 1,
-  appearanceMode: 1,
-  custodyStatus: 1,
-  attended: 1,
-});
 
 module.exports = mongoose.model('AdalatAppearanceLog', AdalatAppearanceLogSchema);

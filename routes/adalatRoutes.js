@@ -8,6 +8,8 @@ const {
   removeDuplicateAdalatRecords,
   getAllCourts,
   feedNewCourt,
+  getNextHearingRecords,
+  updateNextHearingDate,
 } = require('../controllers/adalatController');
 
 // @route   POST /api/adalat/feed
@@ -38,5 +40,15 @@ router.post('/getAllCourts', feedNewCourt);
 
 
 router.get('/cleanData',removeDuplicateAdalatRecords);
+
+
+
+
+router.get('/next-hearings', getNextHearingRecords);
+
+
+router.put('/update-next-hearing', updateNextHearingDate);
+
+
 
 module.exports = router;
